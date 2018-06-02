@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>OSS DevOps – includes</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cloudworkshop.blob.core.windows.net/styles/labstyles.css"></link>
+</head>
+<body>
+<p><img src="images/HeaderPic.png" title="Microsoft Cloud Workshops" /></p>
+<div class="MCWHeader1">
+<p>OSS DevOps</p>
+</div>
+<div class="MCWHeader2">
+<p>Hands-on lab unguided</p>
+</div>
+<div class="MCWHeader3">
+<p>April 2018</p>
+</div>
+<p>Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.</p>
+<p>Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.</p>
+<p>The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein. © 2018 Microsoft Corporation. All rights reserved.</p>
+<p>Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.</p>
+<p><strong>Contents</strong></p>
+<!-- TOC -->
+<ul>
+<li><a href="#oss-devops-hands-on-lab-unguided">OSS DevOps hands-on lab unguided</a>
+<ul>
+<li><a href="#abstract-and-learning-objectives">Abstract and learning objectives</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#solution-architecture">Solution architecture</a></li>
+<li><a href="#requirements">Requirements</a>
+<ul>
+<li><a href="#help-references">Help References</a></li>
+</ul></li>
+<li><a href="#exercise-1-deploy-the-web-application-and-database-to-azure">Exercise 1: Deploy the Web Application and Database to Azure</a>
+<ul>
+<li><a href="#task-1-create-the-mysql-database">Task 1: Create the MySQL database</a></li>
+<li><a href="#task-2-restore-the-osticket-database-to-mysql-paas">Task 2: Restore the osTicket database to MySQL PaaS</a></li>
+<li><a href="#task-3-create-the-web-app">Task 3: Create the Web App</a></li>
+<li><a href="#task-4-configure-the-osticket-web-app">Task 4: Configure the osTicket Web App</a></li>
+<li><a href="#task-5-configure-ftp-deployment-credentials">Task 5: Configure FTP deployment credentials</a></li>
+<li><a href="#task-6-configure-a-staging-slot">Task 6: Configure a staging slot</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#exercise-2-configure-local-git-repository">Exercise 2: Configure local Git repository</a>
+<ul>
+<li><a href="#task-1-clone-a-github-repository-locally">Task 1: Clone a GitHub repository locally</a></li>
+<li><a href="#summary-1">Summary</a></li>
+<li><a href="#"></a></li>
+</ul></li>
+<li><a href="#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment">Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment</a>
+<ul>
+<li><a href="#task-1-deploy-a-jenkins-server-in-azure">Task 1: Deploy a Jenkins server in Azure</a></li>
+<li><a href="#task-2-post-deployment-configuration-of-the-jenkins-server">Task 2: Post-Deployment configuration of the Jenkins server</a></li>
+<li><a href="#task-3-configure-jenkins-staging-deployment">Task 3: Configure Jenkins staging deployment</a></li>
+<li><a href="#task-4-configure-your-github-repo-to-notify-jenkins-of-changes">Task 4: Configure your GitHub repo to notify Jenkins of changes</a></li>
+<li><a href="#task-5-check-in-a-change-to-trigger-jenkins-job">Task 5: Check in a change to trigger Jenkins job</a></li>
+<li><a href="#task-6-manually-deploy-to-production">Task 6: Manually deploy to production</a></li>
+<li><a href="#summary-2">Summary</a></li>
+</ul></li>
+<li><a href="#after-the-hands-on-lab">After the hands-on lab</a>
+<ul>
+<li><a href="#task-1-delete-resources">Task 1: Delete Resources</a></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- /TOC -->
+<h1 id="oss-devops-hands-on-lab-unguided">OSS DevOps hands-on lab unguided</h1>
+<h2 id="abstract-and-learning-objectives">Abstract and learning objectives</h2>
+<p>Migrate an online health food supplier from a hosted environment to Azure and fully embrace modern DevOps tools, investigate PaaS Services and leverage their existing knowledge of Jenkins integration with Azure.</p>
+<p>Attendees will be better able to deploy complex OSS workloads into Azure PaaS using Azure App Services as well as the following tasks:</p>
+<ul>
+<li><p>Deployment and integration of Azure Marketplace products from Partners such as Bitnami for Jenkins</p></li>
+<li><p>Update Azure App Services using providers such as GitHub</p></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>The scenario will challenge you to setup continuous integration and delivery of an application using open source tools such as Jenkins and GitHub along with automated deployments to Azure App Services. You will learn about continuous deployment and the benefits of staged publishing.</p>
+<h2 id="solution-architecture">Solution architecture</h2>
+<figure>
+<img src="images/Hands-onlabunguided-OSSDevOpsimages/media/image2.png" title="Solution architecture diagram" alt="Solution architecture to setup continuous integration and delivery of an application using open source tools such as Jenkins and GitHub with automated deployments to Azure App Services." /><figcaption>Solution architecture to setup continuous integration and delivery of an application using open source tools such as Jenkins and GitHub with automated deployments to Azure App Services.</figcaption>
+</figure>
+<h2 id="requirements">Requirements</h2>
+<ol type="1">
+<li><p>An Azure Subscription</p></li>
+<li><p>A GitHub account</p></li>
+</ol>
+<h3 id="help-references">Help References</h3>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td style="text-align: center;"><strong>Links</strong></td>
+</tr>
+<tr class="even">
+<td>Jenkins Documentation</td>
+<td style="text-align: center;"><a href="https://jenkins.io/doc/" class="uri">https://jenkins.io/doc/</a></td>
+</tr>
+<tr class="odd">
+<td>GitHub Documentation</td>
+<td style="text-align: center;"><a href="https://help.github.com/" class="uri">https://help.github.com/</a></td>
+</tr>
+<tr class="even">
+<td>Azure Web Apps Documentation</td>
+<td style="text-align: center;"><a href="https://azure.microsoft.com/en-us/services/app-service/web/" class="uri">https://azure.microsoft.com/en-us/services/app-service/web/</a></td>
+</tr>
+<tr class="odd">
+<td>Azure Database for MySQL</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/azure/mysql/" class="uri">https://docs.microsoft.com/en-us/azure/mysql/</a></td>
+</tr>
+<tr class="even">
+<td>Azure Database for MySQL</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/azure/mysql/howto-create-manage-server-portal/" class="uri">https://docs.microsoft.com/en-us/azure/mysql/howto-create-manage-server-portal/</a></td>
+</tr>
+<tr class="odd">
+<td>Azure Database for MySQL</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/azure/mysql/howto-manage-firewall-using-portal/" class="uri">https://docs.microsoft.com/en-us/azure/mysql/howto-manage-firewall-using-portal/</a></td>
+</tr>
+<tr class="even">
+<td>Connect Azure Web App to Azure Database for MySQL</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/azure/mysql/howto-connect-webapp/" class="uri">https://docs.microsoft.com/en-us/azure/mysql/howto-connect-webapp/</a></td>
+</tr>
+<tr class="odd">
+<td>App Service for Linux</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro/" class="uri">https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro/</a></td>
+</tr>
+<tr class="even">
+<td>Azure CLI</td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/" class="uri">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise-1-deploy-the-web-application-and-database-to-azure">Exercise 1: Deploy the Web Application and Database to Azure</h2>
+<p>Duration: 60 minutes</p>
+<p>In this exercise, you will deploy the web application and database to Azure using Azure App Service and Azure Database for MySQL. The first steps will be to build the MySQL DB and then import the data using MySQL Workbench. Then, you will create the Azure Web App and connect it to GitHub to download the app using a Docker Container with PHP 7.0.</p>
+<h3 id="task-1-create-the-mysql-database">Task 1: Create the MySQL database</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Deploy the Azure MySQL Database for the OS Ticket Application</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>An instance of Azure Database for MySQL should be deployed</li>
+</ul>
+<h3 id="task-2-restore-the-osticket-database-to-mysql-paas">Task 2: Restore the osTicket database to MySQL PaaS</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Restore the osTicket database to the new MySQL database instance using the following script: <a href="https://cloudworkshop.blob.core.windows.net/oss-devops/mysqlcluster.sql" class="uri">https://cloudworkshop.blob.core.windows.net/oss-devops/mysqlcluster.sql</a></li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>The osTicket database should be deployed</li>
+</ul>
+<h3 id="task-3-create-the-web-app">Task 3: Create the Web App</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Create the Azure Web App (Linux) that will host the osTicket application</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>An instance of Azure Web Apps (Linux) should be deployed</li>
+</ul>
+<h3 id="task-4-configure-the-osticket-web-app">Task 4: Configure the osTicket Web App</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Fork the osTicket application from <a href="https://github.com/opsgility/osTicket" class="uri">https://github.com/opsgility/osTicket</a> and configure it to connect to the MySQL database.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>The application should be configured to reference your MySQL database.</li>
+</ul>
+<h3 id="task-5-configure-ftp-deployment-credentials">Task 5: Configure FTP deployment credentials</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>You should have the FTP credentials for the web app available for use.</li>
+</ul>
+<h3 id="task-6-configure-a-staging-slot">Task 6: Configure a staging slot</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Create a new deployment slot named Staging on the web app.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>The new deployment slot should be created.</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<p>In this exercise, you used several Azure Platform as a Service (PaaS) components to configure a Web Application. The Web App will use Azure Storage as well as MySQL for data. You also configured a staging slot for the Web Application with duplicate settings. The actual deployment of the Web Application will happen in an upcoming exercise.</p>
+<h2 id="exercise-2-configure-local-git-repository">Exercise 2: Configure local Git repository</h2>
+<p>Duration: 10 minutes</p>
+<p>In this exercise, you will use the forked GitHub repository from the previous exercise and clone it locally so that you can configure your web app.</p>
+<h3 id="task-1-clone-a-github-repository-locally">Task 1: Clone a GitHub repository locally</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Clone the GitHub repository you forked earlier to a local repository.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>You should have a local repository with the osTicket source code cloned locally.</li>
+</ul>
+<h3 id="summary-1">Summary</h3>
+<p>In this exercise, you cloned the previously forked GitHub repository locally, so you can configure your web app.</p>
+<h3 id="section"></h3>
+<h2 id="exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment">Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment</h2>
+<p>Duration: 90 minutes</p>
+<p>In this exercise, you will configure a Jenkins server in Azure and leverage it along with Git to setup continuous integration &amp; delivery of your Web Application. You will be pulling source code from a GitHub repository and configuring Jenkins to build and deploy the code to your Staging slot before it is pushed to production (manually).</p>
+<h3 id="task-1-deploy-a-jenkins-server-in-azure">Task 1: Deploy a Jenkins server in Azure</h3>
+<p>Jenkins is an open source continuous integration tool written in Java. It provides continuous integration services for software development. It is a server-based system running in a servlet container such as Apache Tomcat. In this exercise, you will deploy a Jenkins Server in Azure leveraging a prebuilt virtual machine image from the Azure marketplace.</p>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Deploy a Jenkins server in an Azure Virtual Machine.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>You should have a Jenkins server deployed in your Azure subscription.</li>
+</ul>
+<h3 id="task-2-post-deployment-configuration-of-the-jenkins-server">Task 2: Post-Deployment configuration of the Jenkins server</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li><p>Connect to your Jenkins deployment using SSH.</p></li>
+<li><p>Update Jenkins to the latest version.</p></li>
+<li><p>Configure Git for Jenkins.</p></li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li><p>You should have a connection to the Jenkins server and should have upgraded it to the latest version.</p></li>
+<li><p>Git should be configured on the Jenkins server.</p></li>
+</ul>
+<h3 id="task-3-configure-jenkins-staging-deployment">Task 3: Configure Jenkins staging deployment</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Configure Jenkins to deploy the osTicket application from your GitHub forked repository to the staging slot of your Azure Web App.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>After this task, the osTicket application should be browsable from the staging slot of your Azure Web App.</li>
+</ul>
+<h3 id="task-4-configure-your-github-repo-to-notify-jenkins-of-changes">Task 4: Configure your GitHub repo to notify Jenkins of changes</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>After this task, the osTicket application should automatically deploy code changes checked into GitHub.</li>
+</ul>
+<h3 id="task-5-check-in-a-change-to-trigger-jenkins-job">Task 5: Check in a change to trigger Jenkins job</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li><p>Make a change to osTicket\include\client\footer.inc.php file to add <strong>Run on Azure App Services!</strong> After <strong>All rights reserved</strong> on the page.</p></li>
+<li><p>Commit and push your changes to the repository.</p></li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>After this task, the <strong>Run on Azure App Services!</strong> text should be visible on the staging slot.</li>
+</ul>
+<h3 id="task-6-manually-deploy-to-production">Task 6: Manually deploy to production</h3>
+<p><em>Tasks to complete</em></p>
+<ul>
+<li>Swap the staging slot to production in your Azure Web App.</li>
+</ul>
+<p><em>Exit criteria</em></p>
+<ul>
+<li>After this task, the application should load on the production URL.</li>
+</ul>
+<h3 id="summary-2">Summary</h3>
+<p>In this exercise, you leveraged Azure, Jenkins and GitHub to setup continuous integration, delivery, and deployment for your web site. You built a scenario where your code changes were automatically pushed out to a staging slot after collecting assets from GitHub.</p>
+<h2 id="after-the-hands-on-lab">After the hands-on lab</h2>
+<p>Duration: 10 minutes</p>
+<h3 id="task-1-delete-resources">Task 1: Delete Resources</h3>
+<ol type="1">
+<li>Now that the Hands-on lab is complete, go ahead and delete all the Resource Groups that were created for this lab. You will no longer need those resources and it will be beneficial to clean up your Azure Subscription.</li>
+</ol>
+<p>You should follow all steps provided <em>after</em> attending the Hands-on lab.</p>
+</body>
+</html>

@@ -22,18 +22,22 @@ The names of manufacturers, products, or URLs are provided for informational pur
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
 **Contents**
+
+<!-- TOC -->
+
 - [OSS DevOps whiteboard design session student guide](#oss-devops-whiteboard-design-session-student-guide)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Step 1: Review the customer case study](#step-1--review-the-customer-case-study)
+    - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study)
         - [Customer situation](#customer-situation)
         - [Customer needs](#customer-needs)
         - [Customer objections](#customer-objections)
         - [Infographic for common scenarios](#infographic-for-common-scenarios)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-    - [Step 2: Design a proof of concept solution](#step-2--design-a-proof-of-concept-solution)
-    - [Step 3: Present the solution](#step-3--present-the-solution)
+    - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
+    - [Step 3: Present the solution](#step-3-present-the-solution)
     - [Wrap-up](#wrap-up)
     - [Additional references](#additional-references)
+
+<!-- /TOC -->
 
 #  OSS DevOps whiteboard design session student guide
 
@@ -132,7 +136,6 @@ Andy has also expressed that if the MySQL database goes down again, it will be a
 
 ![](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image4.png)
 
-## Step 2: Design a proof of concept solution
 
 ## Step 2: Design a proof of concept solution
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>OSS DevOps – includes</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cloudworkshop.blob.core.windows.net/styles/labstyles.css"></link>
+</head>
+<body>
+<h1 id="oss-devops-setup">OSS DevOps setup</h1>
+<h2 id="requirements">Requirements</h2>
+<ol type="1">
+<li><p>An Azure Subscription</p></li>
+<li><p>A GitHub account</p></li>
+</ol>
+<h2 id="before-the-hands-on-lab">Before the hands-on lab</h2>
+<p>Duration: 30 Minutes</p>
+<h3 id="task-1-create-a-virtual-machine-to-execute-the-lab">Task 1: Create a virtual machine to execute the lab</h3>
+<ol type="1">
+<li><p>Launch a browser and navigate to <a href="https://portal.azure.com" class="uri">https://portal.azure.com</a>. Once prompted, login with your Microsoft Azure credentials. If prompted, choose whether your account is an organization account or just a Microsoft Account.</p></li>
+<li><p>Click on <strong>+NEW</strong>, and in the search box type in <strong>Visual Studio Community 2017 on Windows Server 2016 (x64)</strong> and press enter. Click the Visual Studio Community 2017 image running on Windows Server 2016 and with the latest update.</p></li>
+<li><p>In the returned search results, click the image name.</p></li>
+<li><p>Click <strong>Create</strong>.</p></li>
+<li><p>Set the following configuration on the Basics tab and click <strong>OK</strong>.</p>
+<ul>
+<li><p>Name: <strong>LABVM</strong></p></li>
+<li><p>VM disk type: <strong>SSD</strong></p></li>
+<li><p>User name: <strong>demouser</strong></p></li>
+<li><p>Password: <strong>demo@pass123</strong></p></li>
+<li><p>Subscription: <strong>If you have multiple subscriptions choose the subscription to execute your labs in.</strong></p></li>
+<li><p>Resource Group: <strong>OPSLABRG</strong></p></li>
+<li><p>Location: <strong>Choose the closest Azure region to you.</strong></p></li>
+</ul></li>
+<li><p>Choose the <strong>DS1_V2 Standard</strong> instance size on the Size blade.</p></li>
+</ol>
+<p><strong>Note</strong>: You may have to click the View All link to see the instance sizes.</p>
+<ol start="7" type="1">
+<li><p>Click <strong>Storage Account</strong> <em>Configure required settings</em> to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.</p></li>
+<li><p>Click <strong>Create New</strong></p></li>
+<li><p>Specify a unique name for the storage account (all lower letters and alphanumeric characters) and ensure the green checkmark shows the name is valid.</p></li>
+<li><p>Click <strong>OK</strong> to continue.</p></li>
+<li><p>Click <strong>Diagnostics Storage Account</strong> <em>Configure required settings</em> for the Diagnostics storage account if a storage account name is not automatically selected for you. Repeat the previous steps to select a unique storage account name. This storage account will hold diagnostic logs about your virtual machine that you can use for troubleshooting purposes.</p></li>
+<li><p>Accept the remaining default values on the Settings blade and click <strong>OK</strong>. On the Summary page click <strong>Create</strong>. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.</p></li>
+</ol>
+<p><strong>Note</strong>: Please wait for the LABVM to be provisioned prior to moving to the next step.</p>
+<ol start="13" type="1">
+<li><p>Move back to the Portal page on your local machine and wait for <strong>LABVM</strong> to show the Status of <strong>Running</strong>. Click <strong>Connect</strong> to establish a new Remote Desktop Session.</p></li>
+<li><p>Depending on your remote desktop protocol client and browser configuration you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.</p></li>
+<li><p>Log in with the credentials specified during creation:</p>
+<ol type="a">
+<li><p>User: <strong>demouser </strong></p></li>
+<li><p>Password: <strong>demo@pass123</strong></p></li>
+</ol></li>
+<li><p>You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Click <strong>Yes</strong> to continue with the connection.</p></li>
+<li><p>When logging on for the first time you will see a prompt on the right asking about network discovery. Click <strong>No</strong>.</p></li>
+<li><p>Notice that Server Manager opens by default. On the left, click <strong>Local Server</strong>.</p></li>
+<li><p>On the right side of the pane, click <strong>On</strong> by <strong>IE Enhanced Security Configuration</strong>.</p></li>
+<li><p>Change to <strong>Off</strong> for Administrators and click <strong>OK</strong>.</p></li>
+</ol>
+<h3 id="task-2-install-the-mysql-workbench">Task 2: Install the MySQL Workbench</h3>
+<ol type="1">
+<li><p>While logged into <strong>LABVM</strong> via remote desktop, open Internet Explorer and navigate to <a href="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi" class="uri">https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi</a> this will download an executable. After the download is finished, click <strong>Run</strong> to execute it.</p></li>
+<li><p>Follow the directions of the installer to complete the installation of MySQL Workbench.</p></li>
+<li><p>After the installation is complete, <strong>reboot</strong> the machine.</p></li>
+</ol>
+<p>You should follow all steps provided <em>before</em> attending the Hands-on lab.</p>
+</body>
+</html>
