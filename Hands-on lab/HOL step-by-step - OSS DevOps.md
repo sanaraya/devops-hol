@@ -54,7 +54,6 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
         - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
         - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
         - [Summary](#summary-2)
-        - [](#)
     - [After the hands-on lab](#after-the-hands-on-lab)
         - [Task 1: Delete Resources](#task-1-delete-resources)
 
@@ -220,17 +219,17 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 2.  Execute the following command to create a resource group to contain the MySQL DB.
     ```
-    az group create \--name OsTicketPaaSRG \--location \"East US\"
+    az group create --name OsTicketPaaSRG --location "East US"
     ```
 
 3.  Execute the following command to create a MySQL Database. **Note**: You must choose a unique name for the MySQL server. Replace **osTicketsrv01** with a more unique value.
     ```
-    az mysql server create \--resource-group OsTicketPaaSRG \--name **osticketsrv01** \--location \"East US\" \--admin-user demouser \--admin-password demo\@pass123 \--sku-name GP\_Gen4\_2 \--storage-size 51200 \--ssl-enforcement Disabled
+    az mysql server create --resource-group OsTicketPaaSRG --name osticketsrv01 --location "East US" --admin-user demouser --admin-password demo@pass123 --sku-name GP_Gen4_2 --storage-size 51200 --ssl-enforcement Disabled
     ```
 
 4.  Add an open firewall rule to the database by executing the following command. Ensure you replace the server name with the unique value from the previous step.
     ```
-    az mysql server firewall-rule create \--resource-group OsTicketPaaSRG \--server-name **osticketsrv01** \--name Internet \--start-ip-address 0.0.0.0 \--end-ip-address 255.255.255.255
+    az mysql server firewall-rule create --resource-group OsTicketPaaSRG --server-name osticketsrv01 --name Internet --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
     ```
 
 5.  Once the MySQL database has been deployed, locate and open it from the **OsTicketPaaSRG** resource group using the Azure Portal.
@@ -363,12 +362,12 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 2.  Execute the following command to create a Linux-based App Service Plan for the new web app.
     ```
-    az appservice plan create -n OsTicket -g OsTicketPaaSRG \--is-linux -l \"East US 2\" \--sku S1 \--number-of-workers 1
+    az appservice plan create -n OsTicket -g OsTicketPaaSRG --is-linux -l "East US 2" --sku S1 --number-of-workers 1
     ```
 
 3.  Execute the following command to create a new web app configured for PHP 7.0 inside of the new app service plan. The name of the web app must be unique, so specify some numbers at the end to make it a more unique value.
     ```
-    az webapp create -n osTicketsystem -g OsTicketPaaSRG -p OsTicket -r \"php\|7.0\"
+    az webapp create -n osTicketsystem -g OsTicketPaaSRG -p OsTicket -r "php|7.0"
     ```
 
 4.  Once the deployment has completed, open the **OsTicketPaaSRG** resource group. Notice there are now three objects: **MySQL database, Linux App Service Plan** and the **Web App**.
@@ -487,7 +486,7 @@ In this exercise, you will use the forked GitHub repository from the previous ex
 
     cd repos
 
-    git clone https://github.com/\[**YOUR\_GITHUB**\_**USERNAME**\]/osTicket
+    git clone https://github.com/[**YOUR_GITHUB**_**USERNAME**]/osTicket
     ```
 
 ### Summary
@@ -557,7 +556,9 @@ Go to the Overview page of the Jenkins VM, copy the DNS name, and open the URL i
 
 4.  Get the initial password needed for the next step by running the following command in the command line while still connected through SSH:
 
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+    ```
+    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+    ```
 
 5.  Copy the password shown to your clipboard, as you will need it to initially login to the Jenkins interface
 
@@ -729,21 +730,24 @@ You will now check in a change to your Web Application code that will trigger yo
 
 2.  Click Ctrl+F, and find the following HTML code:
 
-All rights reserved.\</p\>
-
+    ```
+    All rights reserved. </p>
+    ```
 3.  Make a modification to the text and click FileSave
 
-All rights reserved. Run on Azure App Services!\</p\>
+    ```
+    All rights reserved. Run on Azure App Services!</p>
+    ```
 
 4.  Move to a **Git Shell**, and execute the following git commands from the directory where the repo resides to push the update to your repository in GitHub
     ```
-    git config user.name \"Your Name\"
+    git config user.name "Your Name"
 
-    git config user.email \"your\@email.com\"
+    git config user.email "your@email.com"
 
     git add -A
 
-    git commit -m \"updated model\"
+    git commit -m "updated model"
 
     git push
     ```
@@ -785,8 +789,6 @@ Up to this point, you have automated the integration and delivery to your stagin
 ### Summary
 
 In this exercise, you leveraged Azure, Jenkins and GitHub to setup continuous integration, delivery, and deployment for your web site. You built a scenario where your code changes were automatically pushed out to a staging slot after collecting assets from GitHub.
-
-###  
 
 ## After the hands-on lab 
 
