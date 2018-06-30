@@ -1,6 +1,5 @@
 ![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
-
 <div class="MCWHeader1">
 OSS DevOps
 </div>
@@ -18,6 +17,7 @@ Information in this document, including URL and other Internet Web site referenc
 Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
+
 © 2018 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
@@ -34,48 +34,22 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
         - [Help References](#help-references)
     - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
         - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
-        - [Tasks to complete](#tasks-to-complete)
-        - [Exit criteria](#exit-criteria)
         - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
-        - [Tasks to complete](#tasks-to-complete-1)
-        - [Exit criteria](#exit-criteria-1)
         - [Task 3: Create the Web App](#task-3-create-the-web-app)
-        - [Tasks to complete](#tasks-to-complete-2)
-        - [Exit criteria](#exit-criteria-2)
         - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
-        - [Tasks to complete](#tasks-to-complete-3)
-        - [Exit criteria](#exit-criteria-3)
         - [Task 5: Configure FTP deployment credentials](#task-5-configure-ftp-deployment-credentials)
-        - [Tasks to complete](#tasks-to-complete-4)
-        - [Exit criteria](#exit-criteria-4)
         - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
-        - [Tasks to complete](#tasks-to-complete-5)
-        - [Exit criteria](#exit-criteria-5)
         - [Summary](#summary)
     - [Exercise 2: Configure local Git repository](#exercise-2-configure-local-git-repository)
         - [Task 1: Clone a GitHub repository locally](#task-1-clone-a-github-repository-locally)
-        - [Tasks to complete](#tasks-to-complete-6)
-        - [Exit criteria](#exit-criteria-6)
         - [Summary](#summary-1)
     - [Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment](#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment)
         - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
-        - [Tasks to complete](#tasks-to-complete-7)
-        - [Exit criteria](#exit-criteria-7)
         - [Task 2: Post-Deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
-        - [Tasks to complete](#tasks-to-complete-8)
-        - [Exit criteria](#exit-criteria-8)
         - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
-        - [Tasks to complete](#tasks-to-complete-9)
-        - [Exit criteria](#exit-criteria-9)
         - [Task 4: Configure your GitHub repo to notify Jenkins of changes](#task-4-configure-your-github-repo-to-notify-jenkins-of-changes)
-        - [Tasks to complete](#tasks-to-complete-10)
-        - [Exit criteria](#exit-criteria-10)
         - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
-        - [Tasks to complete](#tasks-to-complete-11)
-        - [Exit criteria](#exit-criteria-11)
         - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
-        - [Tasks to complete](#tasks-to-complete-12)
-        - [Exit criteria](#exit-criteria-12)
         - [Summary](#summary-2)
     - [After the hands-on lab](#after-the-hands-on-lab)
         - [Task 1: Delete Resources](#task-1-delete-resources)
@@ -86,13 +60,10 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 
 ## Abstract and learning objectives 
 
-Migrate an online health food supplier from a hosted environment to Azure and fully embrace modern DevOps tools, investigate PaaS Services and leverage their existing knowledge of Jenkins integration with Azure.
+In this whiteboard design session, you will implement a migration of a popular OS Support Ticket system from virtual machines to an Azure PaaS solution with Web Apps, Azure Database for MySQL as well as deploy Jenkins in an Azure virtual machine. 
 
-Attendees will be better able to deploy complex OSS workloads into Azure PaaS using Azure App Services as well as the following tasks:
+At the end of this hands-on lab, you will be better able to implement solutions that use complex OSS workloads using Azure.  
 
--   Deployment and integration of Azure Marketplace products from Partners such as Bitnami for Jenkins
-
--   Update Azure App Services using providers such as GitHub
 
 ## Overview
 
@@ -132,63 +103,63 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 ### Task 1: Create the MySQL database
 
-### Tasks to complete
+*Tasks to complete*
 
 -   Deploy the Azure MySQL Database for the OS Ticket Application
 
-### Exit criteria
+*Exit criteria*
 
 -   An instance of Azure Database for MySQL should be deployed
 
 ### Task 2: Restore the osTicket database to MySQL PaaS
 
-### Tasks to complete
+*Tasks to complete*
 
 -   Restore the osTicket database to the new MySQL database instance using the following script: <https://cloudworkshop.blob.core.windows.net/oss-devops/mysqlcluster.sql>
 
-### Exit criteria
+*Exit criteria*
 
 -   The osTicket database should be deployed
 
 ### Task 3: Create the Web App
 
-### Tasks to complete
+*Tasks to complete*
 
 -   Create the Azure Web App (Linux) that will host the osTicket application
 
-### Exit criteria
+*Exit criteria*
 
 -   An instance of Azure Web Apps (Linux) should be deployed
 
 ### Task 4: Configure the osTicket Web App
 
-### Tasks to complete
+*Tasks to complete*
 
 -   Fork the osTicket application from <https://github.com/opsgility/osTicket> and configure it to connect to the MySQL database.
 
-### Exit criteria
+*Exit criteria*
 
--   The application should be configured to reference your MySQL database.
+-   The application should be configured to reference your MySQL database
 
 ### Task 5: Configure FTP deployment credentials 
 
-### Tasks to complete
+*Tasks to complete*
 
--   Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application.
+-   Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application
 
-### Exit criteria
+*Exit criteria*
 
--   You should have the FTP credentials for the web app available for use.
+-   You should have the FTP credentials for the web app available for use
 
 ### Task 6: Configure a staging slot
 
-### Tasks to complete
+*Tasks to complete*
 
--   Create a new deployment slot named Staging on the web app.
+-   Create a new deployment slot named Staging on the web app
 
-### Exit criteria
+*Exit criteria*
 
--   The new deployment slot should be created.
+-   The new deployment slot should be created
 
 ### Summary
 
@@ -202,18 +173,17 @@ In this exercise, you will use the forked GitHub repository from the previous ex
 
 ### Task 1: Clone a GitHub repository locally
 
-### Tasks to complete
+*Tasks to complete*
 
--   Clone the GitHub repository you forked earlier to a local repository.
+-   Clone the GitHub repository you forked earlier to a local repository
 
-### Exit criteria
+*Exit criteria*
 
--   You should have a local repository with the osTicket source code cloned locally.
+-   You should have a local repository with the osTicket source code cloned locally
 
 ### Summary
 
 In this exercise, you cloned the previously forked GitHub repository locally, so you can configure your web app.
-
 
 ## Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment
 
@@ -225,71 +195,71 @@ In this exercise, you will configure a Jenkins server in Azure and leverage it a
 
 Jenkins is an open source continuous integration tool written in Java. It provides continuous integration services for software development. It is a server-based system running in a servlet container such as Apache Tomcat. In this exercise, you will deploy a Jenkins Server in Azure leveraging a prebuilt virtual machine image from the Azure marketplace.
 
-### Tasks to complete
+*Tasks to complete*
 
--   Deploy a Jenkins server in an Azure Virtual Machine.
+-   Deploy a Jenkins server in an Azure Virtual Machine
 
-### Exit criteria
+*Exit criteria*
 
--   You should have a Jenkins server deployed in your Azure subscription.
+-   You should have a Jenkins server deployed in your Azure subscription
 
 ### Task 2: Post-Deployment configuration of the Jenkins server
 
-### Tasks to complete
+*Tasks to complete*
 
--   Connect to your Jenkins deployment using SSH.
+-   Connect to your Jenkins deployment using SSH
 
--   Update Jenkins to the latest version.
+-   Update Jenkins to the latest version
 
--   Configure Git for Jenkins.
+-   Configure Git for Jenkins
 
-### Exit criteria
+*Exit criteria*
 
--   You should have a connection to the Jenkins server and should have upgraded it to the latest version.
+-   You should have a connection to the Jenkins server and should have upgraded it to the latest version
 
--   Git should be configured on the Jenkins server.
+-   Git should be configured on the Jenkins server
 
 ### Task 3: Configure Jenkins staging deployment
 
-### Tasks to complete
+*Tasks to complete*
 
--   Configure Jenkins to deploy the osTicket application from your GitHub forked repository to the staging slot of your Azure Web App.
+-   Configure Jenkins to deploy the osTicket application from your GitHub forked repository to the staging slot of your Azure Web App
 
-### Exit criteria
+*Exit criteria*
 
--   After this task, the osTicket application should be browsable from the staging slot of your Azure Web App.
+-   After this task, the osTicket application should be browsable from the staging slot of your Azure Web App
 
 ### Task 4: Configure your GitHub repo to notify Jenkins of changes
 
-### Tasks to complete
+*Tasks to complete*
 
--   Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository.
+-   Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository
 
-### Exit criteria
+*Exit criteria*
 
--   After this task, the osTicket application should automatically deploy code changes checked into GitHub.
+-   After this task, the osTicket application should automatically deploy code changes checked into GitHub
 
 ### Task 5: Check in a change to trigger Jenkins job
 
-### Tasks to complete
+*Tasks to complete*
 
 -   Make a change to osTicket\\include\\client\\footer.inc.php file to add **Run on Azure App Services!** After **All rights reserved** on the page.
 
--   Commit and push your changes to the repository.
+-   Commit and push your changes to the repository
 
-### Exit criteria
+*Exit criteria*
 
--   After this task, the **Run on Azure App Services!** text should be visible on the staging slot.
+-   After this task, the **Run on Azure App Services!** text should be visible on the staging slot
 
 ### Task 6: Manually deploy to production
 
-### Tasks to complete
+*Tasks to complete*
 
--   Swap the staging slot to production in your Azure Web App.
+-   Swap the staging slot to production in your Azure Web App
 
-### Exit criteria
+*Exit criteria*
 
--   After this task, the application should load on the production URL.
+-   After this task, the application should load on the production URL
 
 ### Summary
 

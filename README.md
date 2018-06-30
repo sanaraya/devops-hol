@@ -1,42 +1,47 @@
-# Abstract
+# OSS DevOps
+
+Trey Research is an online vitamins seller that has a presence mainly in the United Kingdom and other countries/regions in Europe. They want to expand into other parts of the world starting with Asia and will soon be setting up distribution centers for their vitamins there. They have no retail stores and thus all their business comes through their website. SEO (Search Engine Optimization) is extremely important to them as is their user website experience with a heavy focus on availability and performance.
+
+The company currently has two application teams: **Development** for their websites and **Operations** for deployments and backend servers. These are all hosted in a commercial data center. The teams have a great deal of experience in developing applications in PHP and WordPress for the LAMP stack (Linux, Apache, MySQL, and PHP). What they lack is the operational expertise and maturity to maintain their applications properly. They struggle with development and design practices, deployments, configuration management, and scaling their application to meet busy seasonal periods.
+
+## Target audience
+
+- DevOps Engineers
+- Application Developers
+
+# Abstract 
+
 
 ## Workshop
 
-Migrate an online health food supplier from a hosted environment to Azure and fully embrace modern DevOps tools, investigate PaaS Services and leverage their existing knowledge of Jenkins integration with Azure.
+In this workshop, you will look at options for migrating an online health food supplier from a hosted environment to Azure that fully embraces modern DevOps tools with an OSS focus. You will investigate running OSS workloads using PaaS services that can leverage their existing knowledge of Jenkins.
 
-Attendees will be better able to deploy complex OSS workloads into Azure PaaS using Azure App Services as well as the following tasks:
+At the end of this workshop, you will be better able to design and deploy deploy complex OSS workloads into Azure PaaS using Azure App Services as well as the following tasks:
 
 -   Deployment and integration of Azure Marketplace products from Partners such as Bitnami for Jenkins
 
 -   Update Azure App Services using providers such as GitHub
 
 ## Whiteboard Design Session
-TBD
+
+In this whiteboard design session, you will design a plan for migrating a Linux based web application to Microsoft Azure that takes advantage of existing OSS skills such as usage of Jenkins. This whiteboard design session will explore options for running Linux such as virtual machines or Azure PaaS services such as Web Apps and Azure Database for MySQL. 
+
+At the end of this whiteboard design session, you will be better able to design solutions that use complex OSS workloads using Azure.  
 
 ## Hand-on Lab
-TBD
+
+In this whiteboard design session, you will implement a migration of a popular OS Support Ticket system from virtual machines to an Azure PaaS solution with Web Apps, Azure Database for MySQL as well as deploy Jenkins in an Azure virtual machine. 
+
+At the end of this hands-on lab, you will be better able to implement solutions that use complex OSS workloads using Azure.  
 
 
 ## Azure services and related products
-- Using Mac for Azure Development
 - Using GitHub, Git tools and GitHub desktop with Azure
-- Using Dropbox with Azure
-- Windows VMs
-- Azure Web Apps
+- Azure Virtual Machines
+- Azure Web Apps (Linux)
 - Azure Storage Accounts
-
-
-# Contributing
-
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+- Azure Database for MySQL 
+- Azure Traffic Manager
+- Azure CDN
+- Jenkins
 
