@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-April 2018
+August 2018
 </div>
 
 
@@ -94,7 +94,7 @@ Duration: 30 Minutes
 
 15. Log in with the credentials specified during creation:
 
-    a.  User: **demouser **
+    a.  User: **demouser**
 
     b.  Password: **demo\@pass123**
 

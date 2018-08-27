@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-April 2018
+August 2018
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -32,9 +32,6 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
         - [Help References](#help-references)
-    - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Create a virtual machine to execute the lab](#task-1-create-a-virtual-machine-to-execute-the-lab)
-        - [Task 2: Install the MySQL Workbench](#task-2-install-the-mysql-workbench)
     - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
         - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
         - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
@@ -99,114 +96,6 @@ The scenario will challenge you to setup continuous integration and delivery of 
 | Azure CLI | <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/> |
 
 
-## Before the hands-on lab
-
-Duration: 30 Minutes
-
-### Task 1: Create a virtual machine to execute the lab
-
-1.  Launch a browser and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If prompted, choose whether your account is an organization account or just a Microsoft Account.
-
-2.  Select **+NEW**, and in the search box type in **Visual Studio Community 2017 on Windows Server 2016 (x64)** and press enter. Choose the Visual Studio Community 2017 image running on Windows Server 2016 and with the latest update.
-
-3.  In the returned search results, choose the image name
-
-    ![A screenshot of the Everything blade searching for Visual Studio Community 2017](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image3.png "Everything blade")
-
-4.  Select **Create**
-
-5.  Set the following configuration on the Basics tab and choose **OK**
-
-    -   Name: **LABVM**
-
-    -   VM disk type: **SSD**
-
-    -   User name: **demouser**
-
-    -   Password: **demo\@pass123**
-
-    -   Subscription: **If you have multiple subscriptions choose the subscription to execute your labs in.**
-
-    -   Resource Group: **OPSLABRG**
-
-    -   Location: **Choose the closest Azure region to you**
-
-    ![Fields in the Basics blade display with the previously defined settings.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image4.png "Basics blade")
-
-6.  Choose the **DS1\_V2 Standard** instance size on the Size blade
-
-**Note**: You may have to select the View All link to see the instance sizes
-
-![In the Choose a size blade, the DS1\_V2 Standard option is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image5.png "Choose a size blade")
-
-**Note**: If the Azure Subscription you are using is NOT a trial Azure subscription you may want to choose the DS2\_V2 to have more power in this LABMV. If you are using a Trial Subscription or one that you know has a restriction on the number of cores stick with the DS1\_V2.
-
-7.  Choose **Storage Account** *Configure required settings* to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
-
-    ![In the Settings blade, the Storage account option is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image6.png "Settings blade")
-
-8.  Select **Create New**
-
-    ![Screenshot of the Create new button.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image7.png "Create new button")
-
-9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters) and ensure the green checkmark shows the name is valid
-
-    ![Next to the Name field, the Green checkmark icon is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image8.png "Green checkmark icon")
-
-10. Choose **OK** to continue
-
-11. Select **Diagnostics Storage Account** *Configure required settings* for the Diagnostics storage account if a storage account name is not automatically selected for you. Repeat the previous steps to select a unique storage account name. This storage account will hold diagnostic logs about your virtual machine that you can use for troubleshooting purposes
-
-    ![Screenshot of the Diagnostics Storage Account option.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image9.png "Diagnostics Storage Account option")
-
-12. Accept the remaining default values on the Settings blade and choose **OK**. On the Summary page select **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
-
-    ![Screenshot of the Deploying Visual Studio icon.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image10.png "Deploying Visual Studio icon")
-
-**Note**: Please wait for the LABVM to be provisioned prior to moving to the next step.
-
-13. Move back to the Portal page on your local machine and wait for **LABVM** to show the Status of **Running**. Choose **Connect** to establish a new Remote Desktop Session.
-
-    ![The Connect button is selected on the Portal page top menu.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image11.png "Portal page top menu")
-
-14. Depending on your remote desktop protocol client and browser configuration you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
-
-15. Log in with the credentials specified during creation:
-
-    -   User: **demouser **
-
-    -   Password: **demo\@pass123**
-
-16. You will be presented with a Remote Desktop Connection warning because of a certificate trust issue. Select **Yes** to continue with the connection.
-
-    ![The Remote Desktop Connection dialog box displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image12.png "Remote Desktop Connection dialog box")
-
-17. When logging on for the first time you will have a prompt asking about network discovery. Select **No**.
-
-    ![A Network Diagnostics prompt displays, asking if you want to find PCs, devices, and content on this network and automatically connect.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image13.png "Network Diagnostics prompt")
-
-18. Notice that Server Manager opens by default. On the left, choose **Local Server**
-
-    ![On the Server Manager menu, Local Server is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image14.png "Server Manager menu")
-
-19. On the side of the pane, choose **On** by **IE Enhanced Security Configuration**
-
-    ![In the Essentials section, IE Enhanced Security Configuration is selected, and set to On.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image15.png "Essentials section")
-
-20. Change to **Off** for Administrators and select **OK**
-
-    ![In the Internet Explorer Enhanced Security Configuration dialog box, Administrators is set to Off.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image16.png "Internet Explorer Enhanced Security Configuration dialog box")
-
-### Task 2: Install the MySQL Workbench
-
-1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to <https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi> this will download an executable. After the download is finished, choose **Run** to execute it
-
-2.  Follow the directions of the installer to complete the installation of MySQL Workbench
-
-3.  After the installation is complete, **reboot** the machine
-
-You should follow all steps provided *before* attending the Hands-on lab.
-
 ## Exercise 1: Deploy the Web Application and Database to Azure
 
 Duration: 60 minutes
@@ -221,17 +110,17 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 2.  Execute the following command to create a resource group to contain the MySQL DB
     ```
-    az group create \--name OsTicketPaaSRG \--location \"East US\"
+    az group create --name OsTicketPaaSRG --location "East US"
     ```
 
 3.  Execute the following command to create a MySQL Database. **Note**: You must choose a unique name for the MySQL server. Replace **osTicketsrv01** with a more unique value.
     ```
-    az mysql server create \--resource-group OsTicketPaaSRG \--name **osticketsrv01** \--location \"East US\" \--admin-user demouser \--admin-password demo\@pass123 \--sku-name GP\_Gen4\_2 \--storage-size 51200 \--ssl-enforcement Disabled
+    az mysql server create --resource-group OsTicketPaaSRG --name osticketsrv01 --location "East US" --admin-user demouser --admin-password demo@pass123 --sku-name GP_Gen5_8 --storage-size 51200 --ssl-enforcement Disabled
     ```
 
 4.  Add an open firewall rule to the database by executing the following command. Ensure you replace the server name with the unique value from the previous step
     ```
-    az mysql server firewall-rule create \--resource-group OsTicketPaaSRG \--server-name **osticketsrv01** \--name Internet \--start-ip-address 0.0.0.0 \--end-ip-address 255.255.255.255
+    az mysql server firewall-rule create --resource-group OsTicketPaaSRG --server-name osticketsrv01 --name Internet --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
     ```
 
 5.  Once the MySQL database has been deployed, locate and open it from the **OsTicketPaaSRG** resource group using the Azure Portal
@@ -246,15 +135,19 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 8.  Open a new notepad window and paste this into a new file to retain this string and more information in the next few steps. Update the **database** section to **osTicket** and the **password** section to **demo\@pass123.**
 
-    ![In the Notepad window, the Web App Script displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image20.png "Notepad window")
 
 9. Select overview for the MySQL server
 
     ![On the Azure Database for MySQL Server blade, Overview is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image21.png "Azure Database for MySQL Server blade")
 
-10. Notice the **Server name** and **Server Admin Login** name. You can compare them the connection string that you copied into the text file (they should be the same).
+10. Notice the **Server name** and **Server Admin Login** name. 
 
     ![Under Essentials, the Server name and Server admin login name are circled. The Server name is osticketmysql.mysql.database.azure.com, and the login name is demouser\@osticketmysql](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image22.png "Essentials section")
+
+11. Replace the placeholders for **User Id=** and **Data Source=** in the connection string in notepad to the Server name and Server admin login name values.
+
+    ![In the Notepad window, the Web App Script displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image20.png "Notepad window")
+
 
 11. Scroll down, and notice that there are currently four databases that are running on your server
 
@@ -276,7 +169,7 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 4.  Enter the following information to configure to connect to your Server**
 
-    -   Connection Name: **\<enter your MySQL Server DNS Name -- found in the connection string \>**
+    -   Connection Name: **\<enter your MySQL Server DNS Name -- found in the connection string>**
 
     -   Connection Method: **Standard TCP/IP**
 
@@ -364,12 +257,12 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 2.  Execute the following command to create a Linux-based App Service Plan for the new web app
     ```
-    az appservice plan create -n OsTicket -g OsTicketPaaSRG \--is-linux -l \"East US 2\" \--sku S1 \--number-of-workers 1
+    az appservice plan create -n OsTicket -g OsTicketPaaSRG --is-linux -l "East US 2" --sku S1 --number-of-workers 1
     ```
 
 3.  Execute the following command to create a new web app configured for PHP 7.0 inside of the new app service plan. The name of the web app must be unique, so specify some numbers at the end to make it a more unique value.
     ```
-    az webapp create -n osTicketsystem -g OsTicketPaaSRG -p OsTicket -r \"php\|7.0\"
+    az webapp create -n osTicketsystem -g OsTicketPaaSRG -p OsTicket -r "php|7.0"
     ```
 
 4.  Once the deployment has completed, open the **OsTicketPaaSRG** resource group. Notice there are now three objects: **MySQL database, Linux App Service Plan** and the **Web App**.
@@ -488,7 +381,7 @@ In this exercise, you will use the forked GitHub repository from the previous ex
 
     cd repos
 
-    git clone https://github.com/\[**YOUR\_GITHUB**\_**USERNAME**\]/osTicket
+    git clone https://github.com/[**YOUR_GITHUB**_**USERNAME**]/osTicket
     ```
 
 ### Summary
@@ -529,11 +422,16 @@ Jenkins is an open source continuous integration tool written in Java. It provid
 
 4.  This will present the **Additional Settings** blade. Select **Size** and choose the **DS1\_V2 Standard** size for the VM, and choose **Select.**
     
-    ![](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image64.png)
+    ![In the additional settings blade, specifying the VM size.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image64.png)
+
+5. Choose the **Virtual network** field and choose **Create new**. On the new dialog set the **Address space** to **10.0.0.0/16**.
+
+    ![In the create virtual network blade, specifying the address space 10.0.0.0/16 for the jenkins-vnet virtual network.](media/jenkins-vnet.png)
+
 
 5.  Choose the **Configure subnets** field to view the existing subnet configuration and leave the values to the defaults and select **OK**. Then, enter a unique name in the **Domain name label field**, and choose **OK** on the **Additional** **Settings** blade.
 
-    ![](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image65.png)
+    ![In the configure subnets blade, specifying the subnet address space.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image65.png)
 
 6.  On the **Integration Settings** blade, leave the default values, and select **OK**
 
@@ -732,24 +630,24 @@ You will now check in a change to your Web Application code that will trigger yo
 2.  Choose Ctrl+F, and find the following HTML code:
 
     ```
-    All rights reserved.\</p\>
+    All rights reserved.</p>
     ```
 
 3.  Make a modification to the text and select FileSave
 
     ```
-    All rights reserved. Run on Azure App Services!\</p\>
+    All rights reserved. Run on Azure App Services!</p>
     ```
 
 4.  Move to a **Git Shell**, and execute the following git commands from the directory where the repo resides to push the update to your repository in GitHub
     ```
-    git config user.name \"Your Name\"
+    git config user.name "Your Name"
 
-    git config user.email \"your\@email.com\"
+    git config user.email "your@email.com"
 
     git add -A
 
-    git commit -m \"updated model\"
+    git commit -m "updated model"
 
     git push
     ```
