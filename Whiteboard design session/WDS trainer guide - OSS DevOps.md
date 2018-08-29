@@ -165,9 +165,9 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives 
 
-In this whiteboard design session, you will design a plan for migrating a Linux based web application to Microsoft Azure that takes advantage of existing OSS skills such as usage of Jenkins. This whiteboard design session will explore options for running Linux such as virtual machines or Azure PaaS services such as Web Apps and Azure Database for MySQL. 
+In this whiteboard design session, you will design a plan for migrating a Linux based web application to Microsoft Azure that takes advantage of existing open-source software (OSS) skills such as usage of Jenkins. This whiteboard design session will explore options for running Linux, such as virtual machines, or Azure PaaS services, such as Web Apps and Azure Database, for MySQL.
 
-At the end of this whiteboard design session, you will be better able to design solutions that use complex OSS workloads using Azure.  
+At the end of this whiteboard design session, you will be better able to design solutions that use complex OSS workloads using Azure.
 
 ## Step 1: Review the customer case study 
 
