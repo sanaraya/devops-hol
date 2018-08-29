@@ -60,10 +60,9 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 
 ## Abstract and learning objectives 
 
-In this whiteboard design session, you will implement a migration of a popular OS Support Ticket system from virtual machines to an Azure PaaS solution with Web Apps, Azure Database for MySQL as well as deploy Jenkins in an Azure virtual machine. 
+In this hands-on lab, you will implement a migration of a popular OS Support Ticket system from virtual machines, to an Azure PaaS solution with Web Apps, Azure Database for MySQL, as well as deploy Jenkins in an Azure virtual machine.
 
-At the end of this hands-on lab, you will be better able to implement solutions that use complex OSS workloads using Azure.  
-
+At the end of this hands-on lab, you will be better able to implement solutions that use complex open-source software (OSS) workloads using Azure.
 
 ## Overview
 
