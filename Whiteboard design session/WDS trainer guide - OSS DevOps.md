@@ -63,25 +63,25 @@ Thank you for taking time to support the whiteboard design sessions as a trainer
 
 An amazing trainer:
 
--   Creates a safe environment in which learning can take place
+-   Creates a safe environment in which learning can take place.
 
--   Stimulates the participant's thinking
+-   Stimulates the participant's thinking.
 
--   Involves the participant in the learning process
+-   Involves the participant in the learning process.
 
--   Manages the learning process (on time, on topic, and adjusting to benefit participants)
+-   Manages the learning process (on time, on topic, and adjusting to benefit participants).
 
--   Ensures individual participant accountability
+-   Ensures individual participant accountability.
 
--   Ties it all together for the participant
+-   Ties it all together for the participant.
 
--   Provides insight and experience to the learning process
+-   Provides insight and experience to the learning process.
 
--   Effectively leads the whiteboard design session discussion
+-   Effectively leads the whiteboard design session discussion.
 
--   Monitors quality and appropriateness of participant deliverables
+-   Monitors quality and appropriateness of participant deliverables.
 
--   Effectively leads the feedback process
+-   Effectively leads the feedback process.
 
 ## Whiteboard design session flow 
 
@@ -89,7 +89,9 @@ Each whiteboard design session uses the following flow:
 
 **Step 1: Review the customer case study (15 minutes)**
 
-Outcome: Analyze your customer's needs
+**Outcome**
+
+Analyze your customer's needs.
 
 -   Customer's background, situation, needs and technical requirements
 
@@ -99,19 +101,23 @@ Outcome: Analyze your customer's needs
 
 **Step 2: Design a proof of concept solution (60 minutes)**
 
-Outcome: Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
+**Outcome**
 
--   Determine your target customer audience
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
--   Determine customer's business needs to address your solution
+-   Determine your target customer audience.
 
--   Design and diagram your solution
+-   Determine customer's business needs to address your solution.
 
--   Prepare to present your solution
+-   Design and diagram your solution.
+
+-   Prepare to present your solution.
 
 **Step 3: Present the solution (30 minutes)**
 
-Outcome: Present solution to your customer
+**Outcome**
+
+Present solution to your customer:
 
 -   Present solution
 
@@ -127,15 +133,15 @@ Outcome: Present solution to your customer
 
 Before conducting your first whiteboard design session:
 
--   Read the Student guide (including the case study) and Trainer guide
+-   Read the Student guide (including the case study) and Trainer guide.
 
--   Become familiar with all key points and activities
+-   Become familiar with all key points and activities.
 
--   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions
+-   Plan the point you want to stress, which questions you want to drive, transitions, and be ready to answer questions.
 
--   Prior to the whiteboard design session, discuss the case study to pick up more ideas
+-   Prior to the whiteboard design session, discuss the case study to pick up more ideas.
 
--   Make notes for later
+-   Make notes for later.
 
 ## During the whiteboard design session: Tips for an effective whiteboard design session
 
@@ -145,7 +151,7 @@ Before conducting your first whiteboard design session:
 
 When participants are doing activities, you can **look ahead to refresh your memory**.
 
--   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing
+-   **Adjust activity and whiteboard design session pace** as needed to allow time for presenting, feedback, and sharing.
 
 -   **Add examples, points, and stories** from your own experience. Think about stories you can share that help you make your points clearly and effectively.
 
@@ -157,9 +163,9 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 **Ask questions** and get them to share to fully involve your group in the learning process.
 
-**Ask first**, whenever possible. Before launching into a topic, learn your audience's opinions about it and experiences with it. Asking first enables you to assess their level of knowledge and experience and leaves them more open to what you are presenting.
+**Ask first**, whenever possible. Before launching into a topic, learn your audience's opinions about it and experiences with it. Asking first enables you to assess their level of knowledge and experience, and leaves them more open to what you are presenting.
 
-**Wait for responses**. If you ask a question such as, "What is your experience with (fill in the blank)?" then wait. Do not be afraid of a little silence. If you leap into the silence, your participants will feel you are not serious about involving them and will become passive. Give participants a chance to think, and if no one answers, patiently ask again. You will usually get a response.
+**Wait for responses**. If you ask a question such as, "What's your experience with (fill in the blank)?" then wait. Do not be afraid of a little silence. If you leap into the silence, your participants will feel you are not serious about involving them and will become passive. Give participants a chance to think, and if no one answers, patiently ask again. You will usually get a response.
 
 #  OSS DevOps whiteboard design session student guide
 
@@ -171,15 +177,19 @@ At the end of this whiteboard design session, you will be better able to design 
 
 ## Step 1: Review the customer case study 
 
-**Outcome** 
+**Outcome**
 
-Analyze your customer’s needs.
-Time frame: 15 minutes 
-Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
-1.  Meet your table participants and trainer 
-2.  Read all of the directions for steps 1–3 in the student guide 
-3.  As a table team, review the following customer case study
+Analyze your customer's needs.
 
+Timeframe: 15 minutes
+
+Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
+
+1.  Meet your table participants and trainer.
+
+2.  Read all of the directions for steps 1-3 in the student guide.
+
+3.  As a table team, review the following customer case study.
 
 ### Customer situation
 
@@ -219,21 +229,21 @@ David has also expressed that if the MySQL database goes down again, it will be 
 
 ###  Customer needs 
 
-1.  Deploy and easily scale their web applications written in PHP, node.js, and WordPress
+1.  Deploy and easily scale their web applications written in PHP, node.js, and WordPress.
 
-2.  A resilient and scalable MySQL backend configured to support an active-passive deployment
+2.  A resilient and scalable MySQL backend configured to support an active-passive deployment.
 
-3.  A simpler method of deploying and validating code from their test environment, taking advantage of their investments in Jenkins, Git, and Dropbox
+3.  A simpler method of deploying and validating code from their test environment, taking advantage of their investments in Jenkins, Git, and Dropbox.
 
-4.  No longer wants to manage build server environment on-premise
+4.  No longer want to manage a build server environment on-premises.
 
-5.  Ensure that existing Development tools are retained and compatible with any new solution
+5.  Ensure that existing Development tools are retained and compatible with any new solution.
 
-6.  Avoid timeouts during busy periods while browsing their product catalog
+6.  Avoid timeouts during busy periods while browsing their product catalog.
 
-7.  Decrease the amount of time needed for remote users in areas like Asia to download graphic-heavy, static content, and product catalogs that are PDFs
+7.  Decrease the amount of time needed for remote users in areas like Asia to download graphic-heavy, static content, and product catalogs that are PDFs.
 
-8.  Lowering the total cost of ownership of the entire solution by minimizing the management surface area required for the solution
+8.  Lower the total cost of ownership of the entire solution by minimizing the management surface area required for the solution.
 
 ### Customer objections 
 
@@ -247,30 +257,33 @@ David has also expressed that if the MySQL database goes down again, it will be 
 
 5.  We primarily use Eclipse for our development, which is what our team uses to debug issues. Can we debug our applications using Eclipse against Azure Web Apps?
 
-6.  We cannot move to Microsoft SQL Server; we do not want to deal with the issues of the MySQL VMs anymore
+6.  We cannot move to Microsoft SQL Server; we do not want to deal with the issues of the MySQL VMs anymore.
 
 ### Infographic for common scenarios
 
-![](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image3.png)
+![An image that shows icons for virtual machines, virtual networks, marketplace, gateways, CDN, storage and traffic manager.](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image3.png "Common Scenarios")
 
-![](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image4.png)
-
+![An image that shows icons for MySQL, Azure App Service, Web Apps, monitoring and the IDE Eclipse.](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image4.png "Common Scenarios")
 
 ## Step 2: Design a proof of concept solution
 
-**Outcome** 
-Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
+**Outcome**
 
-Time frame: 60 minutes
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+
+Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart. 
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers? 
+Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
 2.  What customer business needs do you need to address with your solution?
 
-**Design** 
-Directions: With all participants at your table, respond to the following questions on a flip chart.
+**Design**
+
+Directions: With all participants at your table, respond to the following questions on a flip chart:
 
 **Web app infrastructure and network designs (Operations)**
 
@@ -282,11 +295,11 @@ Make sure that your design covers the following items:
 
 **Task:** Design a scalable geo-distributed platform for the Trey Research web applications written in PHP, node.js, and WordPress.
 
-1.  The solution should scale automatically and be resilient to failures
+1.  The solution should scale automatically and be resilient to failures.
 
 2.  Load times in locations around the world should be lessened as compared to today. Static and large files should be placed as close to the user as possible.
 
-3.  Ensure to document (at a high-level) how the new design can handle custom settings in their php.ini and the use of PHP extensions
+3.  Ensure to document (at a high-level) how the new design can handle custom settings in their php.ini and the use of PHP extensions.
 
 **Database**
 
@@ -296,7 +309,7 @@ Make sure that your design covers the following items:
 
 **Task:** How would you design a hybrid network (at a high-level) that will allow you to meet all the customer requirements and support your design for moving Trey Research to Azure?
 
-1.  Design a virtual network in Azure and establish hybrid connectivity between Trey Research on-premises to Azure
+1.  Design a virtual network in Azure and establish hybrid connectivity between Trey Research on-premises to Azure.
 
 2.  Include Azure Networking features in the full design to ensure users connecting to the Web Application are routed to the front-end with the least number of hops. Ensure the load is balanced across these servers.
 
@@ -312,7 +325,7 @@ Use the features of Azure and the requirements to include Dropbox, Git, and Jenk
 
 **Task:** How can Trey Research continue to use Eclipse as their development environment?
 
-1.  Document how the tools are compatible with the new design
+1.  Document how the tools are compatible with the new design.
 
 2.  Determine how their client can debug issues. Can we debug our applications using Eclipse against Azure Web Apps?
 
@@ -322,34 +335,43 @@ Use the features of Azure and the requirements to include Dropbox, Git, and Jenk
 
 Directions: With all participants at your table:
 
-1.  Identify any customer needs that are not addressed with the proposed solution
-2.  Identify the benefits of your solution
-3.  Determine how you will respond to the customer's objections
+1.  Identify any customer needs that are not addressed with the proposed solution.
+
+2.  Identify the benefits of your solution.
+
+3.  Determine how you will respond to the customer's objections.
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
 ## Step 3: Present the solution
 
 **Outcome**
- 
+
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
-**Presentation** 
+**Presentation**
 
 Directions:
-1.  Pair with another table
-2.  One table is the Microsoft team and the other table is the customer
-3.  The Microsoft team presents their proposed solution to the customer
-4.  The customer makes one of the objections from the list of objections
-5.  The Microsoft team responds to the objection
-6.  The customer team gives feedback to the Microsoft team
-7.  Tables switch roles and repeat Steps 2–6
 
-## Wrap-up 
+1.  Pair with another table.
 
-Time frame: 15 minutes
+2.  One table is the Microsoft team and the other table is the customer.
+
+3.  The Microsoft team presents their proposed solution to the customer.
+
+4.  The customer makes one of the objections from the list of objections.
+
+5.  The Microsoft team responds to the objection.
+
+6.  The customer team gives feedback to the Microsoft team.
+
+7.  Tables switch roles and repeat Steps 2-6.
+
+##  Wrap-up 
+
+Timeframe: 15 minutes
 
 Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
@@ -383,43 +405,43 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer
+-   Check in with your table participants to introduce yourself as the trainer.
 
 -   Ask, "What questions do you have about the customer case study?"
 
--   Briefly review the steps and time frames of the whiteboard design session
+-   Briefly review the steps and timeframes of the whiteboard design session.
 
--   Ready, set, go! Let the table participants begin
+-   Ready, set, go! Let the table participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time
+-   Check in with your tables to ensure that they are transitioning from step to step on time.
 
--   Provide some feedback on their responses to the business needs and design
+-   Provide some feedback on their responses to the business needs and design.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
--   Provide feedback for their responses to the customer's objections
+-   Provide feedback for their responses to the customer's objections.
 
-    -   Try asking questions first that will lead the participants to discover the answers on their own
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins
+-   Determine which table will be paired with your table before Step 3 begins.
 
--   For the first round, assign one table as the Microsoft team and the other table as the customer
+-   For the first round, assign one table as the presenting team and the other table as the customer.
 
--   Have the presenting team present their solution to the customer team 
+-   Have the presenting team present their solution to the customer team.
 
-    -   Have the customer team provide one objection for the presenting team to respond to
+    -   Have the customer team provide one objection for the presenting team to respond to.
 
-    -   The presentation, objections, and feedback should take no longer than 15 minutes
+    -   The presentation, objections, and feedback should take no longer than 15 minutes.
 
     -   If needed, the trainer may also provide feedback.
 
 ## Wrap-up
 
-- Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
+-   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
 
 ##  Preferred target audience
 
@@ -493,13 +515,13 @@ Visual Studio Team Services Integration with Jenkins
 
 VSTS includes a growing list of preinstalled configurations. One of its integrations is with Jenkins. This allows using both CI systems with traceability through a single platform. Some example scenarios include:
 
--   Using Jenkins for continuous integration of Team Services Git repositories
+-   Using Jenkins for continuous integration of Team Services Git repositories.
 
--   Using Jenkins to validate Team Service pull requests
+-   Using Jenkins to validate Team Service pull requests.
 
--   Mixing Jenkins and Team Services to perform builds and releases
+-   Mixing Jenkins and Team Services to perform builds and releases.
 
--   Providing traceability between Jenkins and Team Services; linking builds, pull requests, commits, and stories
+-   Providing traceability between Jenkins and Team Services; linking builds, pull requests, commits, and stories.
 
 There are multiple ways to use Jenkins as a CI server with Team Services. Jenkins' built-in Git Plugin can poll a VSTS repository every few minutes and queue a job when changes are detected. For those who need a tighter integration, VSTS provides two additional ways to achieve it: 1) The Jenkins Service Hook, and 2) Jenkins build and release tasks.
 
