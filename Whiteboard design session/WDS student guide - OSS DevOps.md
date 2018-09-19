@@ -50,15 +50,19 @@ At the end of this whiteboard design session, you will be better able to design 
 
 ## Step 1: Review the customer case study 
 
-**Outcome** 
+**Outcome**
 
-Analyze your customer’s needs.
-Time frame: 15 minutes 
-Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips. 
-1.  Meet your table participants and trainer 
-2.  Read all of the directions for steps 1–3 in the student guide 
-3.  As a table team, review the following customer case study
+Analyze your customer's needs.
 
+Timeframe: 15 minutes
+
+Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
+
+1.  Meet your table participants and trainer.
+
+2.  Read all of the directions for steps 1-3 in the student guide.
+
+3.  As a table team, review the following customer case study.
 
 ### Customer situation
 
@@ -98,21 +102,21 @@ David has also expressed that if the MySQL database goes down again, it will be 
 
 ###  Customer needs 
 
-1.  Deploy and easily scale their web applications written in PHP, node.js, and WordPress
+1.  Deploy and easily scale their web applications written in PHP, node.js, and WordPress.
 
-2.  A resilient and scalable MySQL backend configured to support an active-passive deployment
+2.  A resilient and scalable MySQL backend configured to support an active-passive deployment.
 
-3.  A simpler method of deploying and validating code from their test environment, taking advantage of their investments in Jenkins, Git, and Dropbox
+3.  A simpler method of deploying and validating code from their test environment, taking advantage of their investments in Jenkins, Git, and Dropbox.
 
-4.  No longer wants to manage build server environment on-premise
+4.  No longer want to manage a build server environment on-premises.
 
-5.  Ensure that existing Development tools are retained and compatible with any new solution
+5.  Ensure that existing Development tools are retained and compatible with any new solution.
 
-6.  Avoid timeouts during busy periods while browsing their product catalog
+6.  Avoid timeouts during busy periods while browsing their product catalog.
 
-7.  Decrease the amount of time needed for remote users in areas like Asia to download graphic-heavy, static content, and product catalogs that are PDFs
+7.  Decrease the amount of time needed for remote users in areas like Asia to download graphic-heavy, static content, and product catalogs that are PDFs.
 
-8.  Lowering the total cost of ownership of the entire solution by minimizing the management surface area required for the solution
+8.  Lower the total cost of ownership of the entire solution by minimizing the management surface area required for the solution.
 
 ### Customer objections 
 
@@ -126,7 +130,7 @@ David has also expressed that if the MySQL database goes down again, it will be 
 
 5.  We primarily use Eclipse for our development, which is what our team uses to debug issues. Can we debug our applications using Eclipse against Azure Web Apps?
 
-6.  We cannot move to Microsoft SQL Server; we do not want to deal with the issues of the MySQL VMs anymore
+6.  We cannot move to Microsoft SQL Server; we do not want to deal with the issues of the MySQL VMs anymore.
 
 ### Infographic for common scenarios
 
@@ -134,26 +138,30 @@ David has also expressed that if the MySQL database goes down again, it will be 
 
 ![An image that shows icons for MySQL, Azure App Service, Web Apps, monitoring and the IDE Eclipse.](images/Whiteboarddesignsessiontrainerguide-OSSDevOpsimages/media/image4.png "Common Scenarios")
 
-
 ## Step 2: Design a proof of concept solution
 
-**Outcome** 
-Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format. 
+**Outcome**
 
-Time frame: 60 minutes
+Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+
+Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart. 
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers? 
+Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
 2.  What customer business needs do you need to address with your solution?
 
-**Design** 
-Directions: With all participants at your table, respond to the following questions on a flip chart.
+**Design**
+
+Directions: With all participants at your table, respond to the following questions on a flip chart:
 
 **Web app infrastructure and network designs (Operations)**
 
-Using the features of Azure and the requirements from the customer how would you design the application infrastructure and network for Trey Research while lowering the total cost of ownership of the entire solution by designing for the least complexity? Management/updating should be considered for the architecture. The use of VMs should be minimized to lessen the burden of management on the Operations team.
+Using the features of Azure and the requirements from the customer how would you design the application infrastructure and network for Trey Research while lowering the total cost of ownership of the entire solution by designing for the least complexity? 
+Management/updating should be considered for the architecture. The use of VMs should be minimized to lessen the burden of management on the Operations team.
 
 Make sure that your design covers the following items:
 
@@ -161,11 +169,11 @@ Make sure that your design covers the following items:
 
 **Task:** Design a scalable geo-distributed platform for the Trey Research web applications written in PHP, node.js, and WordPress.
 
-1.  The solution should scale automatically and be resilient to failures
+1.  The solution should scale automatically and be resilient to failures.
 
 2.  Load times in locations around the world should be lessened as compared to today. Static and large files should be placed as close to the user as possible.
 
-3.  Ensure to document (at a high-level) how the new design can handle custom settings in their php.ini and the use of PHP extensions
+3.  Ensure to document (at a high-level) how the new design can handle custom settings in their php.ini and the use of PHP extensions.
 
 **Database**
 
@@ -175,7 +183,7 @@ Make sure that your design covers the following items:
 
 **Task:** How would you design a hybrid network (at a high-level) that will allow you to meet all the customer requirements and support your design for moving Trey Research to Azure?
 
-1.  Design a virtual network in Azure and establish hybrid connectivity between Trey Research on-premises to Azure
+1.  Design a virtual network in Azure and establish hybrid connectivity between Trey Research on-premises to Azure.
 
 2.  Include Azure Networking features in the full design to ensure users connecting to the Web Application are routed to the front-end with the least number of hops. Ensure the load is balanced across these servers.
 
@@ -191,47 +199,55 @@ Use the features of Azure and the requirements to include Dropbox, Git, and Jenk
 
 **Task:** How can Trey Research continue to use Eclipse as their development environment?
 
-1.  Document how the tools are compatible with the new design
+1.  Document how the tools are compatible with the new design.
 
 2.  Determine how their client can debug issues. Can we debug our applications using Eclipse against Azure Web Apps?
 
-3.  Document how Trey Research could build nonproduction Azure Web Apps that are "proof of concepts" so they can implement their alpha code directly to Azure, by-passing the CI/CD infrastructure
+3.  Document how Trey Research could build nonproduction Azure Web Apps that are "proof of concepts" so they can implement their alpha code directly to Azure, by-passing the CI/CD infrastructure.
 
 **Prepare**
 
 Directions: With all participants at your table:
 
-1.  Identify any customer needs that are not addressed with the proposed solution
-2.  Identify the benefits of your solution
-3.  Determine how you will respond to the customer's objections
+1.  Identify any customer needs that are not addressed with the proposed solution.
+
+2.  Identify the benefits of your solution.
+
+3.  Determine how you will respond to the customer's objections.
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
 ## Step 3: Present the solution
 
 **Outcome**
- 
+
 Present a solution to the target customer audience in a 15-minute chalk-talk format.
 
-Time frame: 30 minutes
+Timeframe: 30 minutes
 
-**Presentation** 
+**Presentation**
 
 Directions:
-1.  Pair with another table
-2.  One table is the Microsoft team and the other table is the customer
-3.  The Microsoft team presents their proposed solution to the customer
-4.  The customer makes one of the objections from the list of objections
-5.  The Microsoft team responds to the objection
-6.  The customer team gives feedback to the Microsoft team
-7.  Tables switch roles and repeat Steps 2–6
 
+1.  Pair with another table.
+
+2.  One table is the Microsoft team and the other table is the customer.
+
+3.  The Microsoft team presents their proposed solution to the customer.
+
+4.  The customer makes one of the objections from the list of objections.
+
+5.  The Microsoft team responds to the objection.
+
+6.  The customer team gives feedback to the Microsoft team.
+
+7.  Tables switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
-Time frame: 15 minutes
+Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study. 
+Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 |    |            |       
