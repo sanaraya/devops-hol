@@ -113,7 +113,9 @@ Duration: 30 Minutes
 
 ### Task 2: Install the MySQL Workbench
 
-1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to <https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi>. This will download an executable. After the download is finished, click **Run** to execute it.
+1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to: <https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi>. 
+
+This will download an executable. After the download is finished, click **Run** to execute it.
 
 2.  Follow the directions of the installer to complete the installation of MySQL Workbench.
 
