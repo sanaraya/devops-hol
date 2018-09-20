@@ -31,7 +31,7 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
     - [Overview](#overview)
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
-        - [Help References](#help-references)
+        - [Help references](#help-references)
     - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
         - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
         - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
@@ -74,11 +74,11 @@ The scenario will challenge you to setup continuous integration and delivery of 
 
 ## Requirements
 
-1.  An Azure Subscription
+1.  An Azure Subscription.
 
-2.  A GitHub account
+2.  A GitHub account.
 
-### Help References
+### Help references
 |    |            |       
 |----------|:-------------:|
 | **Description** | **Links** |
@@ -92,8 +92,6 @@ The scenario will challenge you to setup continuous integration and delivery of 
 | App Service for Linux | <https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro/> |
 | Azure CLI | <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/> |
 
-
-
 ## Exercise 1: Deploy the Web Application and Database to Azure
 
 Duration: 60 minutes
@@ -102,63 +100,64 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 ### Task 1: Create the MySQL database
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Deploy the Azure MySQL Database for the OS Ticket Application
+-   Deploy the Azure MySQL Database for the OS Ticket Application.
 
-*Exit criteria*
+#### Exit criteria
 
--   An instance of Azure Database for MySQL should be deployed
+-   An instance of Azure Database for MySQL should be deployed.
 
 ### Task 2: Restore the osTicket database to MySQL PaaS
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Restore the osTicket database to the new MySQL database instance using the following script: <https://cloudworkshop.blob.core.windows.net/oss-devops/mysqlcluster.sql>
+-   Restore the osTicket database to the new MySQL database instance using the following script: 
+<https://cloudworkshop.blob.core.windows.net/oss-devops/mysqlcluster.sql>.
 
-*Exit criteria*
+#### Exit criteria
 
--   The osTicket database should be deployed
+-   The osTicket database should be deployed.
 
 ### Task 3: Create the Web App
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Create the Azure Web App (Linux) that will host the osTicket application
+-   Create the Azure Web App (Linux) that will host the osTicket application.
 
-*Exit criteria*
+#### Exit criteria
 
--   An instance of Azure Web Apps (Linux) should be deployed
+-   An instance of Azure Web Apps (Linux) should be deployed.
 
 ### Task 4: Configure the osTicket Web App
 
-*Tasks to complete*
+#### Tasks to complete
 
 -   Fork the osTicket application from <https://github.com/opsgility/osTicket> and configure it to connect to the MySQL database.
 
-*Exit criteria*
+#### Exit criteria
 
--   The application should be configured to reference your MySQL database
+-   The application should be configured to reference your MySQL database.
 
 ### Task 5: Configure FTP deployment credentials 
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application
+-   Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application.
 
-*Exit criteria*
+#### Exit criteria
 
--   You should have the FTP credentials for the web app available for use
+-   You should have the FTP credentials for the web app available for use.
 
 ### Task 6: Configure a staging slot
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Create a new deployment slot named Staging on the web app
+-   Create a new deployment slot named Staging on the web app.
 
-*Exit criteria*
+#### Exit criteria
 
--   The new deployment slot should be created
+-   The new deployment slot should be created.
 
 ### Summary
 
@@ -172,13 +171,13 @@ In this exercise, you will use the forked GitHub repository from the previous ex
 
 ### Task 1: Clone a GitHub repository locally
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Clone the GitHub repository you forked earlier to a local repository
+-   Clone the GitHub repository you forked earlier to a local repository.
 
-*Exit criteria*
+#### Exit criteria
 
--   You should have a local repository with the osTicket source code cloned locally
+-   You should have a local repository with the osTicket source code cloned locally.
 
 ### Summary
 
@@ -194,71 +193,71 @@ In this exercise, you will configure a Jenkins server in Azure and leverage it a
 
 Jenkins is an open source continuous integration tool written in Java. It provides continuous integration services for software development. It is a server-based system running in a servlet container such as Apache Tomcat. In this exercise, you will deploy a Jenkins Server in Azure leveraging a prebuilt virtual machine image from the Azure marketplace.
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Deploy a Jenkins server in an Azure Virtual Machine
+-   Deploy a Jenkins server in an Azure Virtual Machine.
 
-*Exit criteria*
+#### Exit criteria
 
--   You should have a Jenkins server deployed in your Azure subscription
+-   You should have a Jenkins server deployed in your Azure subscription.
 
 ### Task 2: Post-Deployment configuration of the Jenkins server
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Connect to your Jenkins deployment using SSH
+-   Connect to your Jenkins deployment using SSH.
 
--   Update Jenkins to the latest version
+-   Update Jenkins to the latest version.
 
--   Configure Git for Jenkins
+-   Configure Git for Jenkins.
 
-*Exit criteria*
+#### Exit criteria
 
--   You should have a connection to the Jenkins server and should have upgraded it to the latest version
+-   You should have a connection to the Jenkins server and should have upgraded it to the latest version.
 
--   Git should be configured on the Jenkins server
+-   Git should be configured on the Jenkins server.
 
 ### Task 3: Configure Jenkins staging deployment
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Configure Jenkins to deploy the osTicket application from your GitHub forked repository to the staging slot of your Azure Web App
+-   Configure Jenkins to deploy the osTicket application from your GitHub forked repository to the staging slot of your Azure Web App.
 
-*Exit criteria*
+#### Exit criteria
 
--   After this task, the osTicket application should be browsable from the staging slot of your Azure Web App
+-   After this task, the osTicket application should be browsable from the staging slot of your Azure Web App.
 
 ### Task 4: Configure your GitHub repo to notify Jenkins of changes
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository
+-   Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository.
 
-*Exit criteria*
+#### Exit criteria
 
--   After this task, the osTicket application should automatically deploy code changes checked into GitHub
+-   After this task, the osTicket application should automatically deploy code changes checked into GitHub.
 
 ### Task 5: Check in a change to trigger Jenkins job
 
-*Tasks to complete*
+#### Tasks to complete
 
 -   Make a change to osTicket\\include\\client\\footer.inc.php file to add **Run on Azure App Services!** After **All rights reserved** on the page.
 
--   Commit and push your changes to the repository
+-   Commit and push your changes to the repository.
 
-*Exit criteria*
+#### Exit criteria
 
--   After this task, the **Run on Azure App Services!** text should be visible on the staging slot
+-   After this task, the **Run on Azure App Services!** text should be visible on the staging slot.
 
 ### Task 6: Manually deploy to production
 
-*Tasks to complete*
+#### Tasks to complete
 
--   Swap the staging slot to production in your Azure Web App
+-   Swap the staging slot to production in your Azure Web App.
 
-*Exit criteria*
+#### Exit criteria
 
--   After this task, the application should load on the production URL
+-   After this task, the application should load on the production URL.
 
 ### Summary
 
