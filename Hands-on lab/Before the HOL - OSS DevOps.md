@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-April 2018
+August 2018
 </div>
 
 
@@ -27,12 +27,15 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [Requirements](#requirements)
-- [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Create a virtual machine to execute the lab](#task-1-create-a-virtual-machine-to-execute-the-lab)
-    - [Task 2: Install the MySQL Workbench](#task-2-install-the-mysql-workbench)
+- [OSS DevOps before the hands-on lab setup guide](#OSS-DevOps-before-the-hands-on-lab-setup-guide) 
+    - [Requirements](#requirements)
+    - [Before the hands-on lab](#before-the-hands-on-lab)
+        - [Task 1: Create a virtual machine to execute the lab](#task-1-create-a-virtual-machine-to-execute-the-lab)
+        - [Task 2: Install the MySQL Workbench](#task-2-install-the-mysql-workbench)
 
 <!-- /TOC -->
+
+# OSS DevOps before the hands-on lab setup guide 
 
 ## Requirements
 
@@ -54,7 +57,7 @@ Duration: 30 Minutes
 
 4.  Click **Create**.
 
-5.  Set the following configuration on the Basics tab and click **OK**.
+5.  Set the following configuration on the Basics tab and click **OK**:
 
     -   Name: **LABVM**
 
@@ -64,7 +67,7 @@ Duration: 30 Minutes
 
     -   Password: **demo\@pass123**
 
-    -   Subscription: **If you have multiple subscriptions choose the subscription to execute your labs in.**
+    -   Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in.**
 
     -   Resource Group: **OPSLABRG**
 
@@ -72,11 +75,11 @@ Duration: 30 Minutes
 
 6.  Choose the **DS1\_V2 Standard** instance size on the Size blade.
 
-**Note**: You may have to click the View All link to see the instance sizes.
+>**Note**: You may have to click the View All link to see the instance sizes.
 
 7.  Click **Storage Account** *Configure required settings* to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
 
-8.  Click **Create New**
+8.  Click **Create New**.
 
 9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters) and ensure the green checkmark shows the name is valid.
 
@@ -86,7 +89,7 @@ Duration: 30 Minutes
 
 12. Accept the remaining default values on the Settings blade and click **OK**. On the Summary page click **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
-**Note**: Please wait for the LABVM to be provisioned prior to moving to the next step.
+>**Note**: Please wait for the LABVM to be provisioned prior to moving to the next step.
 
 13. Move back to the Portal page on your local machine and wait for **LABVM** to show the Status of **Running**. Click **Connect** to establish a new Remote Desktop Session.
 
@@ -94,7 +97,7 @@ Duration: 30 Minutes
 
 15. Log in with the credentials specified during creation:
 
-    a.  User: **demouser **
+    a.  User: **demouser**
 
     b.  Password: **demo\@pass123**
 
@@ -110,7 +113,9 @@ Duration: 30 Minutes
 
 ### Task 2: Install the MySQL Workbench
 
-1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to <https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi> this will download an executable. After the download is finished, click **Run** to execute it.
+1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to: <https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-winx64.msi>. 
+
+    This will download an executable. After the download is finished, click **Run** to execute it.
 
 2.  Follow the directions of the installer to complete the installation of MySQL Workbench.
 
