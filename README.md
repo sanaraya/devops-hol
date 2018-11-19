@@ -29,11 +29,11 @@ At the end of this whiteboard design session, you will be better able to design 
 In this hands-on lab, you will implement a migration of a popular OS Support Ticket system from virtual machines, to an Azure PaaS solution with Web Apps, Azure Database for MySQL, as well as deploy Jenkins in an Azure virtual machine.
 
 ## Azure services and related products
-- Using GitHub, Git tools and GitHub desktop with Azure
+- A GitHub Account
 - Azure Virtual Machines
 - Azure Web Apps (Linux)
-- Azure Storage Accounts
 - Azure Database for MySQL 
+- MySQL Workbench
 - Azure Traffic Manager
 - Azure CDN
 - Jenkins
