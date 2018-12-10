@@ -27,11 +27,12 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [OSS DevOps before the hands-on lab setup guide](#OSS-DevOps-before-the-hands-on-lab-setup-guide) 
-    - [Requirements](#requirements)
-    - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Create a virtual machine to execute the lab](#task-1-create-a-virtual-machine-to-execute-the-lab)
-        - [Task 2: Install the MySQL Workbench](#task-2-install-the-mysql-workbench)
+- [OSS DevOps before the hands-on lab setup guide](#oss-devops-before-the-hands-on-lab-setup-guide)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+    - [Task 1: Create a virtual machine to execute the lab](#task-1-create-a-virtual-machine-to-execute-the-lab)
+    - [Task 2: Install Chrome](#task-2-install-chrome)
+    - [Task 3: Install the MySQL Workbench](#task-3-install-the-mysql-workbench)
 
 <!-- /TOC -->
 
@@ -51,7 +52,7 @@ Duration: 30 Minutes
 
 1.  Launch a browser and navigate to <https://portal.azure.com>. Once prompted, login with your Microsoft Azure credentials. If prompted, choose whether your account is an organization account or just a Microsoft Account.
 
-2.  Click on **+NEW**, and in the search box type in **Visual Studio Community 2017 on Windows Server 2016 (x64)** and press enter. Click the Visual Studio Community 2017 image running on Windows Server 2016 and with the latest update.
+2.  Click on **+Create a resource**, and in the search box type in **Visual Studio Community 2017 on Windows Server 2016 (x64)** and press enter. Click the Visual Studio Community 2017 image running on Windows Server 2016 and with the latest update.
 
 3.  In the returned search results, click the image name.
 
@@ -59,43 +60,35 @@ Duration: 30 Minutes
 
 5.  Set the following configuration on the Basics tab and click **OK**:
 
-    -   Name: **LABVM**
-
-    -   VM disk type: **SSD**
-
-    -   User name: **demouser**
-
-    -   Password: **demo\@pass123**
-
     -   Subscription: **If you have multiple subscriptions, choose the subscription to execute your labs in.**
 
     -   Resource Group: **OPSLABRG**
 
-    -   Location: **Choose the closest Azure region to you.**
+    -   Virtual machine name: **LABVM**
+   
+    -   Region: **Choose the closest Azure region to you.**
 
-6.  Choose the **DS1\_V2 Standard** instance size on the Size blade.
+    -   VM disk type: **SSD**
 
->**Note**: You may have to click the View All link to see the instance sizes.
+    -   Size: **DS1\_V2 Standard**
 
-7.  Click **Storage Account** *Configure required settings* to specify a storage account for your virtual machine if a storage account name is not automatically selected for you.
+        >**Note**: You may have to click the View All link to see the instance sizes.
+    
+    -   Username: **demouser**
 
-8.  Click **Create New**.
+    -   Password: **demo\@pass123**
 
-9.  Specify a unique name for the storage account (all lower letters and alphanumeric characters) and ensure the green checkmark shows the name is valid.
+    -   Select the **Allow selected ports** radio button and check **RDP (3389)**.
 
-10. Click **OK** to continue.
+6.  Accept the  default values on the remaining blades and click **Review + create**. On the Review + create page click **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
 
-11. Click **Diagnostics Storage Account** *Configure required settings* for the Diagnostics storage account if a storage account name is not automatically selected for you. Repeat the previous steps to select a unique storage account name. This storage account will hold diagnostic logs about your virtual machine that you can use for troubleshooting purposes.
+    >**Note**: Please wait for the LABVM to be provisioned prior to moving to the next step.
 
-12. Accept the remaining default values on the Settings blade and click **OK**. On the Summary page click **Create**. The deployment should begin provisioning. It may take 10+ minutes for the virtual machine to complete provisioning.
+7. Move back to the Portal page on your local machine and wait for **LABVM** to show the Status of **Running**. Click **Connect** to establish a new Remote Desktop Session.
 
->**Note**: Please wait for the LABVM to be provisioned prior to moving to the next step.
+8. Depending on your remote desktop protocol client and browser configuration you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
 
-13. Move back to the Portal page on your local machine and wait for **LABVM** to show the Status of **Running**. Click **Connect** to establish a new Remote Desktop Session.
-
-14. Depending on your remote desktop protocol client and browser configuration you will either be prompted to open an RDP file, or you will need to download it and then open it separately to connect.
-
-15. Log in with the credentials specified during creation:
+9. Log in with the credentials specified during creation:
 
     a.  User: **demouser**
 
@@ -105,17 +98,27 @@ Duration: 30 Minutes
 
 17. When logging on for the first time you will see a prompt on the right asking about network discovery. Click **No**.
 
-18. Notice that Server Manager opens by default. On the left, click **Local Server**.
+18. After a few moments, notice that Server Manager opens by default. Close this window.
 
-19. On the right side of the pane, click **On** by **IE Enhanced Security Configuration**.
+19. On the right side of the pane, click **Off** next to **IE Enhanced Security Configuration**.
 
-20. Change to **Off** for Administrators and click **OK**.
+20. Change to **Off** for Users and click **OK**.
 
-### Task 2: Install the MySQL Workbench
+### Task 2: Install Chrome
 
-1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to: <https://dev.mysql.com/downloads/workbench/>. 
+1.  While logged into **LABVM** via remote desktop, open Internet Explorer and navigate to: <https://www.google.com/chrome/>.
 
-    Select "Microsoft Windows" from the "Select Operating System:" dropdown and the executable package. After the download is finished, click **Run** to execute it.
+2.  Click the **Download Chrome** button.
+
+3.  Press **Accept and Install** when prompted.
+
+4.  Press **Run** when prompted to download and begin the installation.
+
+### Task 3: Install the MySQL Workbench
+
+1.  While logged into **LABVM** via remote desktop, open Chrome and navigate to: <https://downloads.mysql.com/archives/workbench/>. 
+
+    Select "Microsoft Windows" from the "Operating System:" dropdown and download the executable package. After the download is finished, click **Run** to execute it.
 
 2.  Follow the directions of the installer to complete the installation of MySQL Workbench.
 

@@ -27,32 +27,31 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 <!-- TOC -->
 
 - [OSS DevOps hands-on lab step-by-step](#oss-devops-hands-on-lab-step-by-step)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Overview](#overview)
-    - [Solution architecture](#solution-architecture)
-    - [Requirements](#requirements)
-        - [Help references](#help-references)
-    - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
-        - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
-        - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
-        - [Task 3: Create the Web App](#task-3-create-the-web-app)
-        - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
-        - [Task 5: Configure FTP deployment credentials](#task-5-configure-ftp-deployment-credentials)
-        - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
-        - [Summary](#summary)
-    - [Exercise 2: Configure local Git repository](#exercise-2-configure-local-git-repository)
-        - [Task 1: Clone a GitHub repository locally](#task-1-clone-a-github-repository-locally)
-        - [Summary](#summary-1)
-    - [Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment](#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment)
-        - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
-        - [Task 2: Post-deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
-        - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
-        - [Task 4: Configure your GitHub repo to notify Jenkins of changes](#task-4-configure-your-github-repo-to-notify-jenkins-of-changes)
-        - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
-        - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
-        - [Summary](#summary-2)
-    - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Delete Resources](#task-1-delete-resources)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+    - [Help References](#help-references)
+  - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
+    - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
+    - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
+    - [Task 3: Create the Web App](#task-3-create-the-web-app)
+    - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
+    - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
+    - [Summary](#summary)
+  - [Exercise 2: Configure local Git repository](#exercise-2-configure-local-git-repository)
+    - [Task 1: Clone a GitHub repository locally](#task-1-clone-a-github-repository-locally)
+    - [Summary](#summary-1)
+  - [Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment](#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment)
+    - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
+    - [Task 2: Post-deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
+    - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
+    - [Task 4: Configure your GitHub repo to notify Jenkins of changes](#task-4-configure-your-github-repo-to-notify-jenkins-of-changes)
+    - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
+    - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
+    - [Summary](#summary-2)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Delete Resources](#task-1-delete-resources)
 
 <!-- /TOC -->
 
@@ -114,10 +113,12 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 3.  Execute the following command to create a MySQL Database:
 
->**Note**: You must choose a unique name for the MySQL server. Replace **osTicketsrv01** with a more unique value.
+    >**Note**: You must choose a unique name for the MySQL server. Replace **osticketsrv01** with a more unique value.
 
+    ```
     az mysql server create --resource-group OsTicketPaaSRG --name osticketsrv01 --location "East US" --admin-user demouser --admin-password demo@pass123 --sku-name B_Gen5_2 --storage-size 51200 --ssl-enforcement Disabled
-
+    ```
+    
 4.  Add an open firewall rule to the database by executing the following command. Ensure you replace the server name with the unique value from the previous step.
     
     ```
@@ -143,7 +144,7 @@ In this exercise, you will deploy the web application and database to Azure usin
 
     ![Under Essentials, the Server name and Server admin login name are circled. The Server name is osticketmysql.mysql.database.azure.com, and the login name is demouser\@osticketmysql](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image22.png "Essentials section")
 
-11. Replace the placeholders for **User Id=** and **Data Source=** in the connection string in notepad to the Server name and Server admin login name values.
+11. Here is a sample of what your connection string will be similar to.
 
     ![In the Notepad window, the Web App Script displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image20.png "Notepad window")
 
@@ -207,7 +208,7 @@ In this exercise, you will deploy the web application and database to Azure usin
 
     ![On the Data Import page, on the Import from Disk tab, under Import options, Import from Self-Contained File is selected, and the location is C:\\HOL\\mysqlcluster.sql.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image32.png "Data Import page")
 
-12. Choose new, next to the **Default Schema to be Imported To**.
+12. Choose **New...**, next to the **Default Schema to be Imported To**.
 
     ![On the Data Import page, on the Import from Disk tab, the New button is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image33.png "Data Import page")
 
@@ -265,23 +266,23 @@ In this exercise, you will deploy the web application and database to Azure usin
     az webapp create -n osTicketsystem -g OsTicketPaaSRG -p OsTicket -r "php|7.0"
     ```
 
-4.  Once the deployment has completed, open the **OsTicketPaaSRG** resource group. Notice there are now three objects: **MySQL database, Linux App Service Plan** and the **Web App**.
+4.  Once the deployment has completed, open the **OsTicketPaaSRG** resource group. Notice there are now three objects: **Azure Database for MySQL server, App Service plan** and the **App Service** web app.
 
     ![On the Resource group blade, Overview is selected. Under Essentials, a callout points to the OsTicket App Service plan.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image42.png "Resource group blade")
 
 ### Task 4: Configure the osTicket Web App
 
-1.  Open the Web App using the Azure portal. Notice the details of the application including the **URL**.
+1.  Open the Web App using the Azure portal to click on the App Service. Notice the details of the application including the **URL**.
 
     ![On the App Service blade, Overview is selected. Under Essentials, a callout points to the URL live link http://osticketsystem.azurewebsites.net.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image43.png "App Service blade")
 
-2.  If you select the **URL**, the default webpage will load.
+2.  If you select the **URL**, the default webpage will load indicating our App Service app is up and running.
 
 3.  In the Azure portal, select **Application settings** in the Settings area
 
     ![Under Settings, Application settings is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image44.png "Settings section")
 
-4.  Locate the Connection Strings section. Choose **+ Add new connection string** and enter the name **osTicket** and copy the connection string from notepad into the **value area**. Select **MySQL** in the dropdown list next to the string. Select **Save**.
+4.  Locate the Connection Strings section. Choose **+ Add new connection string** and enter the name **osticket** and copy the connection string from notepad into the **value area**. Select **MySQL** in the **TYPE** dropdown list next to the string. Select **Save**.
 
     ![Under Connection strings, the osticket connection string displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image45.png "Connection strings section")
 
@@ -323,23 +324,27 @@ In this exercise, you will deploy the web application and database to Azure usin
 
     ![The text field under Commit changes reads, \"Updated MySQL Server Settings.\" The option to Commit directly to the master branch is selected, as is the Commit Changes button at the bottom. ](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image54.png "Commit changes section")
 
-### Task 5: Configure FTP deployment credentials 
+*** Task 5: Configure Deployment Center
 
-Since you will be leveraging Jenkins to deploy the source code, you must first update the credentials that are used for an FTP deployment.
+Since you will be leveraging Jenkins to deploy the source code, you must first configure Deployment Center.
 
-1.  In the Azure portal, choose **Resource groups \> OsTicketPaaSRG** and select the App Service to open the settings of the App Service.
+1.  In the Azure portal, choose **Resource groups \> OsTicketPaaSRG** and then select the **App Service** to open the settings of the App Service.
+   
+2.  Select **Deployment Center** and click on **FTP**.
 
-2.  Select Deployment credentials, specify a globally unique username (**AppServiceFTPUser\<makethisunique\>**) / password (**demo\@pass123**), and choose **Save.** 
+3.  Click the **Dashboard** button at the bottom of the screen.
 
->**Note**: The username must be globally unique, so you may have to append some numbers to make it unique.
+4.  The Application Credentials will be-auto generated and your configuration will be similar to the one shown below.
 
-   ![Screenshot showing how to configure the Deployment Credentials that will be used by Jenkins.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image55.png "Deployment credentials blade")
+    ![Screenshot showing how to configure the Deployment Center FTP credentials that will be used by Jenkins.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image107.png "Deployment Center FTP credentials blade")
+
+5.  Close the FTP blade.
 
 ### Task 6: Configure a staging slot
 
 1.  In the Azure portal, select **Resource groups \> OsTicketPaaSRG** and select the App Service to open the settings of the App Service.
 
-2.  Choose **Deployment slots** under the **DEPLOYMENT** category.
+2.  Choose **Deployment slots (Preview)** under the **Deployment** category.
 
     ![Screenshot showing where the Deployment slots menu item is located in the Azure Portal.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image56.png "Deployment slots")
 
@@ -347,17 +352,19 @@ Since you will be leveraging Jenkins to deploy the source code, you must first u
 
     ![Screenshot showing how to add a deployment slot.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image57.png "Adding a slot")
 
-4.  Name the slot **Staging**, specify the primary site as the **Configuration Source** (this will copy over all the variables and their values we defined previously as well as the connection string), and select **OK** to create the deployment slot.
+4.  Name the slot **Staging**, specify the **osTicketsystem** as the **CClong settings from** (this will copy over all the variables and their values we defined previously as well as the connection string), and select **Add** to create the deployment slot.
 
-5.  Select on the deployment slot once it shows up in the list.
+5.  Click **Close** to close the **Add a slot** panel.
+
+6.  Select on the deployment slot once it shows up in the list.
     
     ![Screenshot of the deployment slots.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image58.png "Deployment slots")
 
-6.  Once the staging slot has been created, select its name. On the **Overview** link, choose on the **URL** from the staging slot's essentials pane.
+7.  Once the staging slot has been created, select its name. On the **Overview** link, choose on the **URL** from the staging slot's essentials pane.
 
     ![Screenshot of the link to the staging deployment slot.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image59.png "Overview blade")
 
-7.  At this time, no code has been deployed to either production or the staging slot we just created. Both URLs will have the default website like the one below. You will be leveraging Jenkins and GitHub in the exercises that follow to deploy the website.
+8.  At this time, no code has been deployed to either production or the staging slot we just created. Both URLs will have the default website like the one below. You will be leveraging Jenkins and GitHub in the exercises that follow to deploy the website.
 
     ![Screenshot of the default App Service deployment.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image60.png "Default app service page")
 
@@ -427,11 +434,6 @@ Jenkins is an open source continuous integration tool written in Java. It provid
     
     ![In the additional settings blade, specifying the VM size.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image64.png)
 
-5. Choose the **Virtual network** field and choose **Create new**. On the new dialog set the **Address space** to **10.0.0.0/16**.
-
-    ![In the create virtual network blade, specifying the address space 10.0.0.0/16 for the jenkins-vnet virtual network.](media/jenkins-vnet.png)
-
-
 5.  Choose the **Configure subnets** field to view the existing subnet configuration and leave the values to the defaults and select **OK**. Then, enter a unique name in the **Domain name label field**, and choose **OK** on the **Additional** **Settings** blade.
 
     ![In the configure subnets blade, specifying the subnet address space.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image65.png)
@@ -469,7 +471,7 @@ Go to the Overview page of the Jenkins VM, copy the DNS name, and open the URL i
 
     ![Screenshot of Jenkins immediately after logging in.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image68.png "Jenkins home page")
 
-7.  Once logged into the portal, notice the version of Jenkins (**2.107.2** as of the writing of this lab). Choose **Manage Jenkins** for more details.
+7.  Once logged into the portal, notice the version of Jenkins (**2.150.1** as of the writing of this lab). Choose **Manage Jenkins** for more details.
 
     ![On the Jenkins dashboard, Manage Jenkins is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image69.png "Jenkins dashboard")
 
@@ -479,11 +481,11 @@ Go to the Overview page of the Jenkins VM, copy the DNS name, and open the URL i
 
     ![The previously defined options are selected on the Jenkins dashboard.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image70.png "Jenkins dashboard")
 
-10. There are three Plug-Ins you need to install for the next exercises. Choose the Available tab, and type **github** in the Filter field. Select the check box for **GitHub**, and choose **Install without restart**. Its version is at 1.29.0 as of this writing. You may need to scroll down to find it.
+10. There are three Plug-Ins you need to install for the next exercises. Choose the Available tab, and type **github** in the Filter field. Select the check box for **GitHub**, and choose **Install without restart**. Its version is at 1.29.3 as of this writing. You may need to scroll down to find it.
 
     ![A screenshot showing searching by GitHub](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image71.png "Filter box")
 
-11. Next, choose the Available tab and type **Workspace Cleanup**. Choose the check box for **Workspace Cleanup Plugin** and select **Install without restart**.
+11. Next, choose the Available tab and type **Workspace Cleanup**. Choose the check box for **Workspace Cleanup** and select **Install without restart**.
 
     ![The previously defined options are selected on the Available tab.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image72.png "Available tab")
 
@@ -503,7 +505,7 @@ Go to the Overview page of the Jenkins VM, copy the DNS name, and open the URL i
 
     ![On the Jenkins dashboard, the previously defined options are selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image75.png "Jenkins dashboard")
 
-17. Under **Git**, ensure the **Name** is set to ***Default***, and the **Path to Git executable** is set to ***git**.
+17. Under **Git**, ensure the **Name** is set to ***Default***, and the **Path to Git executable** is set to **git**.
 
 18. Select **Save**.
 
@@ -521,21 +523,29 @@ You are now ready to define your staging deployment job.
 
     ![In the Publish over FTP section, the Add button is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image77.png "Publish over FTP section")
 
-4.  The information that is needed here can be obtained from the settings of the App Service in Azure. Since you will be deploying to the Staging slot, be sure to get the information from the staging slot settings.
+4.  The information that is needed here can be obtained from the staging slot Web App in the Azure portal.
 
->**Note**: The only difference between the different slots is the username. The FTP URL is the same.
+    ![Screenshot showing the deployed resources including the staging slot from the Azure portal.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image108.png "Staging slot")
 
-![Screenshot showing the FTP credentials to be used from the Azure portal.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image78.png "FTP credentials")
+5.  After selecting the staging slot, click on **Deployment Center** and then **FTP** and then click the **Dashboard** button.
 
-5.  Update the Plug-In settings with the following information, and choose **Save** (after confirming the connection is successful by selecting **Test Configuration**):
+    ![Screenshot showing the FTP credentials to be used from the Azure portal.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image107.png "FTP credentials")
+
+5.  Update the Plug-In settings with the following information, and click **Save** (after confirming the connection is successful by clicking **Test Configuration**):
 
     -   Name: **Staging Slot for Web App**
 
     -   Hostname: \<**ftp hostname from web app staging slot settings**\>
 
+        >NOTE: Be sure not to include the **ftps://** portion of the hostname.
+
     -   Username: \<**username from web app staging slot settings**\>
 
-    -   Password: **demo\@pass123**
+    -   Password: \<**password from the web app staging slot settings**\>
+
+    -   Remote Directory: \<**remove any path after the hostname above and paste it into this field (i.e. /site/wwwroot**>
+
+        >NOTE: Be sure to remove any path information from the **Hostname** field and place it into the **Remote Directory** field.
 
         ![Fields in the Publish over FTP dialog box are set to the previously mentioned settings.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image79.png "Publish over FTP dialog box")
 
@@ -547,7 +557,7 @@ You are now ready to define your staging deployment job.
 
     ![The previously mentioned options are selected on the Jenkins New Item page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image81.png "Jenkins New Item page")
 
-8.  In the **Source Code Management** section, choose Git and specify your GitHub repository URL. Choose **Add** to configure your credentials.
+8.  On the **Source Code Management** tab, choose Git and specify your GitHub repository URL. Choose **Add** to configure your credentials.
 
     ![Screenshot of the Source Code Management panel.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image82.png "Source code management")
 
