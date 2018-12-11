@@ -46,9 +46,10 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
     - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
     - [Task 2: Post-deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
     - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
-    - [Task 4: Configure your GitHub repo to notify Jenkins of changes](#task-4-configure-your-github-repo-to-notify-jenkins-of-changes)
-    - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
-    - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
+    - [Task 4: Create a GitHub Personal Access Token](#task-4-create-a-github-personal-access-token)
+    - [Task 5: Configure your GitHub repo to notify Jenkins of changes](#task-5-configure-your-github-repo-to-notify-jenkins-of-changes)
+    - [Task 6: Check in a change to trigger Jenkins job](#task-6-check-in-a-change-to-trigger-jenkins-job)
+    - [Task 7: Manually deploy to production](#task-7-manually-deploy-to-production)
     - [Summary](#summary-2)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Delete Resources](#task-1-delete-resources)
@@ -324,7 +325,7 @@ In this exercise, you will deploy the web application and database to Azure usin
 
     ![The text field under Commit changes reads, \"Updated MySQL Server Settings.\" The option to Commit directly to the master branch is selected, as is the Commit Changes button at the bottom. ](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image54.png "Commit changes section")
 
-*** Task 5: Configure Deployment Center
+### Task 5: Configure Deployment Center
 
 Since you will be leveraging Jenkins to deploy the source code, you must first configure Deployment Center.
 
@@ -619,25 +620,59 @@ You are now ready to define your staging deployment job.
 
 21. On the **My Tickets** screen, move through to one of the tickets. Congratulations, you have successfully deployed the application.
 
-### Task 4: Configure your GitHub repo to notify Jenkins of changes
+### Task 4: Create a GitHub Personal Access Token
+
+For an upcoming task, you will need to generate a GitHub Personal Access Token. This token will allow GitHub to send Jenkins data to automatically trigger builds. 
+
+1.  Open a new browser tab and log into your GitHub repo ([https://github.com/\<username\>/osTicket](https://github.com/%3cusername%3e/osticket)), and choose your profile (top-right portion of the screen) followed by **Settings**.
+
+    ![Screenshot of GitHub profile Settings menu.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image109.png "GitHub profile settings")
+
+2.  Select the **Developer settings** item from the left-side menu.
+
+    ![Screenshot of personal settings menu.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image110.png "Developer settings")
+
+3.  When the Developer settings appear, select the **Personal access tokens** item from the left-side menu. Then, click the **Generate new token** button at the top of the screen to generate a new token.
+
+    ![Screenshot of Developer settings menu.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image111.png "Personal access tokens")
+
+4.  On the **New personal access token** screen, enter a name such as **Jenkins Builds** in the **Token description field** and be sure to check the box for **admin:org_hook** under the **Selected scopes** section. 
+
+    ![Screenshot of Personal access tokens page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image112.png "Personal access tokens page")
+
+5.  Then click the **Generate token** button at the bottom of the page to complete the token generation process.
+
+6.  The page will refresh and your new Personal access token will be displayed near the top. Be sure to copy this token (yours will be different) and paste it into a notepad for later use as you will not be able to retreive it from GitHub once you leave this page.
+
+    ![Screenshot of the new Personal access token.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image113.png "New Personal access token")
+
+### Task 5: Configure your GitHub repo to notify Jenkins of changes
 
 You will now configure your GitHub repository to notify your Jenkins server when a change has occurred, so the Jenkins Job is kicked off automatically.
 
-1.  Log into your GitHub repo ([https://github.com/\<username\>/osTicket](https://github.com/%3cusername%3e/osticket)), and choose **Settings** followed by **Integration & services**.
+1.  Log into your GitHub repo ([https://github.com/\<username\>/osTicket](https://github.com/%3cusername%3e/osticket)), and choose **Settings** followed by **Webhooks**.
 
-    ![Screenshot of GitHub repository Settings showing where Integration & services menu option is located.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image97.png "Gitub settings")
+    ![Screenshot of GitHub repository Settings showing where Webhooks menu option is located.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image97.png "Gitub settings")
 
-2.  Select **Add service**, and choose **Jenkins (GitHub plugin)**.
+2.  Select **Add webhook**, and set the following fields:
 
-    ![On the Installed integrations page, in the Services section, under Available Services, Jenkins (GitHub plugin) is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image98.png "Installed integrations page")
+    - **Payload URL** - This is the URL to your Jenkins environment appended with **/github-webhook/**. For example: **http://jenkins99.southcentralus.cloudapp.azure.com/github-webhook/**
 
-3.  For the Jenkins hook URL, enter the following (after updating the string with your servers FQDN). 
+        >**Note the trailing slash (/)** -- make sure it is included in your URL:
 
->**Note the trailing slash (/)** -- make sure it is included in your URL:
+    - **Content type** - Set this value to **application/json**.
 
-   ![On the Services / Add Jenkins (GitHub plugin) page, the previous code displays, and the Add service button is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image99.png "Services page")
+    - **Secret** - Paste your Personal access token that you saved from the previous task.
+- 
+    ![Add webhook page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image98.png "Add webhook")
 
-### Task 5: Check in a change to trigger Jenkins job
+3.  Finally, click the **Add webhook** button to finalize the creation of the new webhook.
+  
+4.  The page will refresh, and if we've done everything correctly, you'll see a confirmation that the webhook tested sucessfully as indicated by the green checkmark.
+
+    ![Successful webhook confirmation.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image114.png "Successful webhook confirmation")
+
+### Task 6: Check in a change to trigger Jenkins job
 
 You will now check in a change to your Web Application code that will trigger your Jenkins job by editing the file that updates the home page.
 
@@ -685,7 +720,7 @@ You will now check in a change to your Web Application code that will trigger yo
 
     ![On the Jenkins portal homepage, Build History displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image102.png "Jenkins portal homepage")
 
-### Task 6: Manually deploy to production
+### Task 7: Manually deploy to production
 
 Up to this point, you have automated the integration and delivery to your staging slot. You will now move those changes into the production slot *manually*. Leveraging the tools you have configured so far, you could ultimately automate this last step to get continuous deployment.
 
@@ -693,7 +728,7 @@ Up to this point, you have automated the integration and delivery to your stagin
 
     ![Screenshot showing how to navigate to the app service.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image103.png "Choosing the web app")
 
-2.  Select **Deployment slots \> Swap**.
+2.  Select **Swap** at the top of the screen.
 
     ![Screenshot showing how to navigate to swap the deployment slots](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image104.png "Swapping the web app")
 
