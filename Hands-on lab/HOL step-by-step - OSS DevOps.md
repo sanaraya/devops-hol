@@ -659,7 +659,7 @@ For an upcoming task, you will need to generate a GitHub Personal Access Token. 
 
 5.  Then click the **Generate token** button at the bottom of the page to complete the token generation process.
 
-6.  The page will refresh and your new Personal access token will be displayed near the top. Be sure to copy this token (yours will be different) and paste it into a notepad for later use as you will not be able to retreive it from GitHub once you leave this page.
+6.  The page will refresh, and your new Personal access token will be displayed near the top. Be sure to copy this token (yours will be different) and paste it into a notepad for later use as you will not be able to retrieve it from GitHub once you leave this page.
 
     ![Screenshot of the new Personal access token.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image113.png "New Personal access token")
 
@@ -685,7 +685,7 @@ You will now configure your GitHub repository to notify your Jenkins server when
 
 3.  Finally, click the **Add webhook** button to finalize the creation of the new webhook.
   
-4.  The page will refresh, and if we've done everything correctly, you'll see a confirmation that the webhook tested sucessfully as indicated by the green checkmark.
+4.  The page will refresh, and if we've done everything correctly, you'll see a confirmation that the webhook tested successfully as indicated by the green checkmark.
 
     ![Successful webhook confirmation.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image114.png "Successful webhook confirmation")
 
