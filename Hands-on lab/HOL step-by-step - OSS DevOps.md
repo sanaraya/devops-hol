@@ -76,9 +76,9 @@ The scenario will challenge you to setup continuous integration and delivery of 
 
 ## Requirements
 
-1.  An Azure subscription.
+1.  An Azure subscription
 
-2.  A GitHub account.
+2.  A GitHub account
 
 ### Help References
 |    |            |       
@@ -533,13 +533,13 @@ You are now ready to define your staging deployment job.
 
     ![Screenshot showing the FTP credentials to be used from the Azure portal.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image107.png "FTP credentials")
 
-5.  Update the Plug-In settings with the following information, and click **Save** (after confirming the connection is successful by clicking **Test Configuration**):
+6.  Update the Plug-In settings with the following information, and click **Save** (after confirming the connection is successful by clicking **Test Configuration**):
 
     -   Name: **Staging Slot for Web App**
 
     -   Hostname: \<**ftp hostname from web app staging slot settings**\>
 
-        >NOTE: Be sure not to include the **ftps://** portion of the hostname.
+        >**Note**: Be sure not to include the **ftps://** portion of the hostname.
 
     -   Username: \<**username from web app staging slot settings**\>
 
@@ -547,19 +547,19 @@ You are now ready to define your staging deployment job.
 
     -   Remote Directory: \<**remove any path after the hostname above and paste it into this field (i.e. /site/wwwroot**>
 
-        >NOTE: Be sure to remove any path information from the **Hostname** field and place it into the **Remote Directory** field.
+        >**Note**: Be sure to remove any path information from the **Hostname** field and place it into the **Remote Directory** field.
 
         ![Fields in the Publish over FTP dialog box are set to the previously mentioned settings.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image79.png "Publish over FTP dialog box")
 
-6.  On the Welcome page, select the **create new jobs** link.
+7.  On the Welcome page, select the **create new jobs** link.
 
     ![The create new jobs link is selected on the Jenkins dashboard.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image80.png "Jenkins dashboard")
 
-7.  Choose **Freestyle project** and name the project **Deploy to Staging**, and choose **OK**.
+8.  Choose **Freestyle project** and name the project **Deploy to Staging**, and choose **OK**.
 
     ![The previously mentioned options are selected on the Jenkins New Item page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image81.png "Jenkins New Item page")
 
-8.  On the **Source Code Management** tab, choose Git and specify your GitHub repository URL. Choose **Add** to configure your credentials.
+9.  On the **Source Code Management** tab, choose Git and specify your GitHub repository URL. Choose **Add** to configure your credentials.
 
     ![Screenshot of the Source Code Management panel.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image82.png "Source code management")
 
@@ -567,19 +567,19 @@ You are now ready to define your staging deployment job.
 
     ![Screenshot of the configured Jenkins credentials.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image84.png "Jenkins credentials")
 
-9.  In Build Triggers, check **GitHub hook trigger for GITScm polling**.
+10.  In Build Triggers, check **GitHub hook trigger for GITScm polling**.
 
     ![The previously mentioned checkbox is selected in the Build Triggers section.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image85.png "Build Triggers section")
 
-10. In the **Build** section, from the **Add build step** dropdown list, choose **Send files over FTP**. Be sure to choose the FTP you defined earlier, specify **\*\*** for the **Source files** and **/site/wwwroot** for the **Remote directory**.
+11. In the **Build** section, from the **Add build step** dropdown list, choose **Send files over FTP**. Be sure to choose the FTP you defined earlier, specify **\*\*** for the **Source files** and **/site/wwwroot** for the **Remote directory**.
 
     ![Fields in the Send files over FTP section are set to the previously defined settings.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image86.png "Send files over FTP")
 
-11. Next, let's add a verification step after our website deploys. Click the **Add build step** dropdown button and select the **Execute shell** option.
+12. Next, let's add a verification step after our website deploys. Click the **Add build step** dropdown button and select the **Execute shell** option.
 
     ![Add an additional build step for verification that our website deployed successfully.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image115.png "Add a build step")
 
-12. In the **Command** window, copy and paste the following text. Replace the **{staging-url}** with the staging URL of your site.
+13. In the **Command** window, copy and paste the following text. Replace the **{staging-url}** with the staging URL of your site.
 
     ```bash
     response=$(curl -s -o /dev/null -w "%{http_code}\n" https://{staging-url})
@@ -591,39 +591,39 @@ You are now ready to define your staging deployment job.
 
     ![An example of the command.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image116.png "Command example")
 
-13. Choose **Save** to save your changes.
+14. Choose **Save** to save your changes.
 
     ![Screenshot of the Save button.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image87.png "Save button")
 
-14. Although you specified to run this project whenever a check-in was done in GitHub, you can force the job to run. Choose **Build Now** on the project page.
+15. Although you specified to run this project whenever a check-in was done in GitHub, you can force the job to run. Choose **Build Now** on the project page.
 
     ![Build Now is selected on the Jenkins Deploy to Staging page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image88.png "Jenkins Deploy to Staging page")
 
-15. You will see an entry in Build History with your build number. Hover over the number to get a dropdown list of options. Choose **Console Output**.
+16. You will see an entry in Build History with your build number. Hover over the number to get a dropdown list of options. Choose **Console Output**.
 
     ![In the Build History section., the menu for number one displays with Console Output selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image89.png "Build History section.")
 
-16. Review the Console Output for any errors etc. You can see in the Console Output where the call to your GitHub repo is made and where it is synced on your Jenkins server. You can also see the commands specified and their output.
+17. Review the Console Output for any errors etc. You can see in the Console Output where the call to your GitHub repo is made and where it is synced on your Jenkins server. You can also see the commands specified and their output.
 
     ![Screenshot showing the console output of the Jenkins deployment.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image90.png "Console output")
 
-17. Once the job has completed, you can verify the deployment by browsing to the URL of the staging slot.
+18. Once the job has completed, you can verify the deployment by browsing to the URL of the staging slot.
 
     ![Screenshot showing how to navigate to the staging version of the website.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image91.png "App service overview blade")
 
-18. You will notice the site has been deployed.
+19. You will notice the site has been deployed.
 
     ![Screenshot showing the deployed website.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image92.png "Deployed website")
 
-19. Choose the Sign in link.
+20. Choose the Sign in link.
 
     ![Screenshot of the Sign in link.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image93.png "Sign in link")
 
-20. Locate **I'm an agent**, and select the **sign in here** link.
+21. Locate **I'm an agent**, and select the **sign in here** link.
 
     ![On the Sign in to Microsoft Cloud Workshop page, next to I\'m an agent, the link to sign in here is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image94.png "Sign in page")
 
-21. At the OsTicket screen, enter the **username** and **password** and choose **Log In**.
+22. At the OsTicket screen, enter the **username** and **password** and choose **Log In**.
 
     -   Username: ***demouser***
 
@@ -631,11 +631,11 @@ You are now ready to define your staging deployment job.
 
     ![The osTicket log in webpage displays.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image95.png "osTicket log in webpage")
 
-22. Once logged into the OsTicket system, select **My Tickets**.
+23. Once logged into the OsTicket system, select **My Tickets**.
 
     ![On the osTicket page, tickets tab, My Tickets (4) is selected.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image96.png "osTicket page, tickets tab")
 
-23. On the **My Tickets** screen, move through to one of the tickets. Congratulations, you have successfully deployed the application.
+24. On the **My Tickets** screen, move through to one of the tickets. Congratulations, you have successfully deployed the application.
 
 ### Task 4: Create a GitHub Personal Access Token
 
@@ -680,7 +680,7 @@ You will now configure your GitHub repository to notify your Jenkins server when
     - **Content type** - Set this value to **application/json**.
 
     - **Secret** - Paste your Personal access token that you saved from the previous task.
-- 
+
     ![Add webhook page.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image98.png "Add webhook")
 
 3.  Finally, click the **Add webhook** button to finalize the creation of the new webhook.
