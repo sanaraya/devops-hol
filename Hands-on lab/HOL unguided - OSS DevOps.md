@@ -9,7 +9,7 @@ Hands-on lab unguided
 </div>
 
 <div class="MCWHeader3">
-August 2018
+December 2018
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -27,32 +27,61 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
 <!-- TOC -->
 
 - [OSS DevOps hands-on lab unguided](#oss-devops-hands-on-lab-unguided)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Overview](#overview)
-    - [Solution architecture](#solution-architecture)
-    - [Requirements](#requirements)
-        - [Help references](#help-references)
-    - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
-        - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
-        - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
-        - [Task 3: Create the Web App](#task-3-create-the-web-app)
-        - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
-        - [Task 5: Configure FTP deployment credentials](#task-5-configure-ftp-deployment-credentials)
-        - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
-        - [Summary](#summary)
-    - [Exercise 2: Configure local Git repository](#exercise-2-configure-local-git-repository)
-        - [Task 1: Clone a GitHub repository locally](#task-1-clone-a-github-repository-locally)
-        - [Summary](#summary-1)
-    - [Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment](#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment)
-        - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
-        - [Task 2: Post-Deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
-        - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
-        - [Task 4: Configure your GitHub repo to notify Jenkins of changes](#task-4-configure-your-github-repo-to-notify-jenkins-of-changes)
-        - [Task 5: Check in a change to trigger Jenkins job](#task-5-check-in-a-change-to-trigger-jenkins-job)
-        - [Task 6: Manually deploy to production](#task-6-manually-deploy-to-production)
-        - [Summary](#summary-2)
-    - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Delete Resources](#task-1-delete-resources)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+    - [Help references](#help-references)
+  - [Exercise 1: Deploy the Web Application and Database to Azure](#exercise-1-deploy-the-web-application-and-database-to-azure)
+    - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
+      - [Tasks to complete](#tasks-to-complete)
+      - [Exit criteria](#exit-criteria)
+    - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
+      - [Tasks to complete](#tasks-to-complete-1)
+      - [Exit criteria](#exit-criteria-1)
+    - [Task 3: Create the Web App](#task-3-create-the-web-app)
+      - [Tasks to complete](#tasks-to-complete-2)
+      - [Exit criteria](#exit-criteria-2)
+    - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
+      - [Tasks to complete](#tasks-to-complete-3)
+      - [Exit criteria](#exit-criteria-3)
+    - [Task 5: Configure Deployment Center](#task-5-configure-deployment-center)
+      - [Tasks to complete](#tasks-to-complete-4)
+      - [Exit criteria](#exit-criteria-4)
+    - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
+      - [Tasks to complete](#tasks-to-complete-5)
+      - [Exit criteria](#exit-criteria-5)
+    - [Summary](#summary)
+  - [Exercise 2: Configure local Git repository](#exercise-2-configure-local-git-repository)
+    - [Task 1: Clone a GitHub repository locally](#task-1-clone-a-github-repository-locally)
+      - [Tasks to complete](#tasks-to-complete-6)
+      - [Exit criteria](#exit-criteria-6)
+    - [Summary](#summary-1)
+  - [Exercise 3: Configure Git and Jenkins for continuous integration, delivery and deployment](#exercise-3-configure-git-and-jenkins-for-continuous-integration-delivery-and-deployment)
+    - [Task 1: Deploy a Jenkins server in Azure](#task-1-deploy-a-jenkins-server-in-azure)
+      - [Tasks to complete](#tasks-to-complete-7)
+      - [Exit criteria](#exit-criteria-7)
+    - [Task 2: Post-deployment configuration of the Jenkins server](#task-2-post-deployment-configuration-of-the-jenkins-server)
+      - [Tasks to complete](#tasks-to-complete-8)
+      - [Exit criteria](#exit-criteria-8)
+    - [Task 3: Configure Jenkins staging deployment](#task-3-configure-jenkins-staging-deployment)
+      - [Tasks to complete](#tasks-to-complete-9)
+      - [Exit criteria](#exit-criteria-9)
+    - [Task 4: Create a GitHub Personal Access Token](#task-4-create-a-github-personal-access-token)
+      - [Tasks to complete](#tasks-to-complete-10)
+      - [Exit criteria](#exit-criteria-10)
+    - [Task 5: Configure your GitHub repo to notify Jenkins of changes](#task-5-configure-your-github-repo-to-notify-jenkins-of-changes)
+      - [Tasks to complete](#tasks-to-complete-11)
+      - [Exit criteria](#exit-criteria-11)
+    - [Task 6: Check in a change to trigger Jenkins job](#task-6-check-in-a-change-to-trigger-jenkins-job)
+      - [Tasks to complete](#tasks-to-complete-12)
+      - [Exit criteria](#exit-criteria-12)
+    - [Task 7: Manually deploy to production](#task-7-manually-deploy-to-production)
+      - [Tasks to complete](#tasks-to-complete-13)
+      - [Exit criteria](#exit-criteria-13)
+    - [Summary](#summary-2)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Delete Resources](#task-1-delete-resources)
 
 <!-- /TOC -->
 
@@ -139,11 +168,11 @@ In this exercise, you will deploy the web application and database to Azure usin
 
 -   The application should be configured to reference your MySQL database.
 
-### Task 5: Configure FTP deployment credentials 
+### Task 5: Configure Deployment Center
 
 #### Tasks to complete
 
--   Configure the FTP credentials for the web app so that Jenkins can use them to deploy the application.
+-   Using Deployment Center, configure the FTP credentials for the web app so that Jenkins can use them to deploy the application.
 
 #### Exit criteria
 
@@ -201,7 +230,7 @@ Jenkins is an open source continuous integration tool written in Java. It provid
 
 -   You should have a Jenkins server deployed in your Azure subscription.
 
-### Task 2: Post-Deployment configuration of the Jenkins server
+### Task 2: Post-deployment configuration of the Jenkins server
 
 #### Tasks to complete
 
@@ -227,17 +256,27 @@ Jenkins is an open source continuous integration tool written in Java. It provid
 
 -   After this task, the osTicket application should be browsable from the staging slot of your Azure Web App.
 
-### Task 4: Configure your GitHub repo to notify Jenkins of changes
+### Task 4: Create a GitHub Personal Access Token
 
 #### Tasks to complete
 
--   Configure Jenkins to use Web Hooks to be notified when changes occur in your GitHub repository.
+-   Create a GitHub Personal Access Token to allow GitHub to send Jenkins data to automatically trigger builds.
+
+#### Exit criteria
+
+-   After this task, a GitHub Personal Access Token should be copied to a notepad for an upcoming task.
+
+### Task 5: Configure your GitHub repo to notify Jenkins of changes
+
+#### Tasks to complete
+
+-   Configure Jenkins to use a webhook to be notified when changes occur in your GitHub repository.
 
 #### Exit criteria
 
 -   After this task, the osTicket application should automatically deploy code changes checked into GitHub.
 
-### Task 5: Check in a change to trigger Jenkins job
+### Task 6: Check in a change to trigger Jenkins job
 
 #### Tasks to complete
 
@@ -249,7 +288,7 @@ Jenkins is an open source continuous integration tool written in Java. It provid
 
 -   After this task, the **Run on Azure App Services!** text should be visible on the staging slot.
 
-### Task 6: Manually deploy to production
+### Task 7: Manually deploy to production
 
 #### Tasks to complete
 
