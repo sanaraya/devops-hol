@@ -7,5 +7,3 @@
 
 [HOL step-by-step - OSS DevOps.html](https://cloudworkshop.blob.core.windows.net/oss-devops/Hands-on%20lab/HOL%20step-by-step%20-%20OSS%20DevOps.html)
 
-[HOL unguided - OSS DevOps.html](https://cloudworkshop.blob.core.windows.net/oss-devops/Hands-on%20lab/HOL%20unguided%20-%20OSS%20DevOps.html)
-
