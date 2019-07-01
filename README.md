@@ -1,6 +1,6 @@
 # OSS DevOps
 
-## The content of this workshop has been consolidated with the OSS PaaS and DevOps MCW. This workshop is no longer being maintained and will be archived on June 28, 2019
+## The content of this workshop has been consolidated with the OSS PaaS and DevOps MCW. This workshop is archived and is no longer being maintained. Content is read-only.
 
 Trey Research is an online vitamins seller that has a presence mainly in the United Kingdom and other countries/regions in Europe. They want to expand into other parts of the world starting with Asia and will soon be setting up distribution centers for their vitamins there. They have no retail stores; thus, all their business comes through their website. SEO (Search Engine Optimization) is extremely important to them as is their user website experience with a heavy focus on availability and performance.
 
@@ -40,8 +40,5 @@ In this hands-on lab, you will implement a migration of a popular OS Support Tic
 - Azure CDN
 - Jenkins
 
-## Azure solutions
-DevOps
-
 ## Related references
-- [MCW](https://github.com/Microsoft/MCW)
+- [Microsoft Cloud Workshop](https://github.com/Microsoft/MCW)
