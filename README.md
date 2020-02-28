@@ -26,13 +26,5 @@ In this hands-on lab, you will implement a migration of a popular OS Support Tic
 
 ## Azure services and related products
 - A GitHub Account
-- Azure Virtual Machines
 - Azure Web Apps (Linux)
 - Azure Database for MySQL 
-- MySQL Workbench
-- Azure Traffic Manager
-- Azure CDN
-- Jenkins
-
-## Related references
-- [Microsoft Cloud Workshop](https://github.com/Microsoft/MCW)
