@@ -85,52 +85,11 @@ The scenario will challenge you to setup continuous integration and delivery of 
 
 
 
-## Exercise - Create an Azure DevOps organization
-
-body lang="en-us" dir="ltr">
-
-[Skip to main content](#main)
-
-Contents
-
-Exit focus mode
-
-*   Bookmark
-*   Theme
-    
-    *   Light
-    *   Dark
-    *   High contrast
-    
-
-*   [Sign in](#)
-    
-      
-    
-      
-    
-    *   [Profile](/profile)
-    *   [Bookmarks](/profile)
-    *   [Collections](/profile)
-    *   [Sign out](#)
-    
-
-Contents
-
-Previous
-
-Next
-
-Previous
-
-Next
-
-Exercise - Create an Azure DevOps organization
-==============================================
+## Exercise - Create an Azure DevOps Organization and a Project 
 
 Microsoft provides free Azure DevOps accounts for individuals, small teams, and open-source projects. Enterprises can also sign up for Azure DevOps accounts that can scale to thousands of team members. We're going to sign up for a free Azure DevOps organization to see how its services can help us on our DevOps journey.
 
-Note
+**Note**
 
 In this learning path, you'll use Azure DevOps Services, which Microsoft hosts for you. There's also [Azure DevOps Server](https://azure.microsoft.com/services/devops/server?azure-portal=true), the on-premises version of Azure DevOps Services that you can install and run on your own network.
 
@@ -155,10 +114,6 @@ Follow along with the team by setting up your own free Azure DevOps organization
     
     As the person creating the Azure DevOps organization, you will automatically become the owner. Please be considerate when deciding on your account name and avoid existing legal entities.
     
-
-Create an organization
-----------------------
-
 Next, set up an organization. Here's how:
 
 1.  If you've never created an Azure DevOps organization, you'll see a window with a **Create new organization** button. If you have, you'll see a link that reads **New organization**. Select the option you see.
@@ -169,15 +124,20 @@ Next, set up an organization. Here's how:
 
 The next screen prompts you to create a project. You'll do that in the next module.
 
-Congratulations! In the next module, the team will use Azure Boards to create its first project and backlog.
-
+Create a Azure DevOps Project
+-----------------------------------
 
 Select Azure DevOps to open the Projects page. 
 Choose the organization, and then select New project.
 
-   ![Screenshot of the Launch Cloud shell icon.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/image17.png "Launch Cloud shell icon")
+   ![Screenshot of the Create Project.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/create-project-1.png "Create Project")
 
-Enter information into the form provided. Provide a name for your project. Choose the visibility, initial source control type, and work item process. For guidance, see Choosing the right version control for your project and Choose a process.
+Enter information into the form provided. Provide a name for your project. Choose the visibility, initial source control type, and work item process. 
+
+   ![Screenshot of the Create Project.](images/Hands-onlabstep-by-step-OSSDevOpsimages/media/create-project-2.png "Create Project with details")
+
+For guidance, see Choosing the right version control for your project and Choose a process.
+
 
 ## Exercise: Deploy the Web Application and Database to Azure
 
