@@ -26,7 +26,7 @@ Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/int
     - [Task 1: Create the MySQL database](#task-1-create-the-mysql-database)
     - [Task 2: Restore the osTicket database to MySQL PaaS](#task-2-restore-the-osticket-database-to-mysql-paas)
     - [Task 3: Create the Web App](#task-3-create-the-web-app)
-    - [Task 4: Configure the osTicket Web App](#task-4-configure-the-osticket-web-app)
+    - [Task 4: Configure the Tailspin SpaceGame Web App](#task-4-configure-the-tailspin-web-app)
     - [Task 5: Configure Deployment Center](#task-5-configure-deployment-center)
     - [Task 6: Configure a staging slot](#task-6-configure-a-staging-slot)
     - [Summary](#summary)
