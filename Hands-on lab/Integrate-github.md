@@ -64,21 +64,21 @@ Exercise 1: Getting started with Azure Pipelines
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/006.png)
     
-10.  If you have multiple **GitHub** accounts, select the one you forked the calculator to from the **Switch billing account** dropdown.
-    
+10. If you have multiple **GitHub** accounts, select the one you forked the calculator to from the **Switch billing account** dropdown.
+
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/007.png)
     
-11.  Click **Complete order and begin installation**.
+11. Click **Complete order and begin installation**
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/008.png)
-    
-12.  You have the option to specify repositories to include, but for the purposes of this lab, just include all of them. Note that Azure DevOps requires the listed set of permissions to fulfill its services. Click **Install**.
+
+12. You have the option to specify repositories to include, but for the purposes of this lab, just include all of them. Note that Azure DevOps requires the listed set of permissions to fulfill its services. Click **Install**.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/009.png)
     
-13.  You may be prompted to confirm your GitHub password to continue.
+13. You may be prompted to confirm your GitHub password to continue.
     
-14.  You may be prompted to log in to your Microsoft account. Make sure you’re logged into the one associated with your Azure DevOps account.
+14. You may be prompted to log in to your Microsoft account. Make sure you’re logged into the one associated with your Azure DevOps account.
     
 
 ### Task 2: Configuring your Azure Pipelines project
@@ -154,9 +154,9 @@ Exercise 1: Getting started with Azure Pipelines
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/025.png)
     
-10.  After the install and build steps we can see the logs for the tests. Everything passes! Click **Esc** to close the task view.
+10. After the install and build steps we can see the logs for the tests. Everything passes! Click **Esc** to close the task view.
     
-    ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/025.png)
+    ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/026.png)
     
 
 ### Task 4: Proposing a change via GitHub pull request
@@ -195,15 +195,15 @@ Exercise 1: Getting started with Azure Pipelines
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/034.png)
     
-10.  Click **View more details on Azure Pipelines**. This will open a new tab.
+10. Click **View more details on Azure Pipelines**. This will open a new tab.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/035.png)
     
-11.  Follow the build until it fails. Click the **npm install, build, and test** task to view the log output.
+11. Follow the build until it fails. Click the **npm install, build, and test** task to view the log output.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/036.png)
     
-12.  Locate the section that lists out failing tests. It might not be immediately clear why the tests failed, but all of the history we’ve accrued in the pipeline makes it easy to identify that something from this new pull request is the cause. The next step will be to figure out why “21 + 21” produced “2121” instead of the expected “42”.
+12. Locate the section that lists out failing tests. It might not be immediately clear why the tests failed, but all of the history we’ve accrued in the pipeline makes it easy to identify that something from this new pull request is the cause. The next step will be to figure out why “21 + 21” produced “2121” instead of the expected “42”.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/037.png)
     
@@ -281,11 +281,11 @@ Exercise 1: Getting started with Azure Pipelines
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/052.png)
     
-10.  Scroll down and add a commit comment and click **Commit changes**.
+10. Scroll down and add a commit comment and click **Commit changes**.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/053.png)
     
-11.  You now have a dynamic build status badge on your project’s front page that allows everyone to know that you’re effectively managing your project.
+11. You now have a dynamic build status badge on your project’s front page that allows everyone to know that you’re effectively managing your project.
     
     ![](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/images/054.png)
     
