@@ -16,5 +16,8 @@ The lab contains step-by-step instructions of the following scenarios -
 
 ## Azure services and related products
 - A GitHub Account
-- Azure Web Apps (Linux)
-- Azure Database for MySQL 
+- Azure Web Apps 
+- Azure SQL Database
+- Ansible
+- Visual Studio Code
+- Git
