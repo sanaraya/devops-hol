@@ -188,7 +188,7 @@
                     "fileUris": [
                         "https://raw.githubusercontent.com/shankarvrp1/devops-hol/master/Hands-on%20lab/files/ansible_install.sh"
                     ],
-                    "commandToExecute": "sh install_ansible.sh"
+                    "commandToExecute": "sh ansible_install.sh"
                 }
             },
             "dependsOn": [
