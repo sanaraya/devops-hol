@@ -2,27 +2,17 @@
 
 ## The content of this workshop has been tailored to cover a few scenarios and may not be a complete workshop on DevOps. Content is read-only.
 
-Trey Research is an online vitamins seller that has a presence mainly in the United Kingdom and other countries/regions in Europe. They want to expand into other parts of the world starting with Asia and will soon be setting up distribution centers for their vitamins there. They have no retail stores; thus, all their business comes through their website. SEO (Search Engine Optimization) is extremely important to them as is their user website experience with a heavy focus on availability and performance.
+The lab contains step-by-step instructions of the following scenarios -
 
-The company currently has two application teams: **Development** for their websites, and **Operations** for deployments and backend servers. These are all hosted in a commercial data center. The teams have a great deal of experience in developing applications in PHP and WordPress for the LAMP stack (Linux, Apache, MySQL, and PHP). What they lack is the operational expertise and maturity to maintain their applications properly. They struggle with development and design practices, deployments, configuration management, and scaling their application to meet busy seasonal periods.
+1. Connect DevOps to GitHub 
+2. Create a CI/CD pipeline for a Web Application
+3. Create a Ansible deployment
+4. Create a Kubernetes deployment - Do It Yourself
 
 ## Target audience
 
 - DevOps Engineers
 - Application Developers
-
-# Abstract 
-
-
-## Workshop
-
-In this workshop, you will look at options for migrating an online health food supplier from a hosted environment to Azure that fully embraces modern DevOps tools with an open-source software (OSS) focus. You will investigate running OSS workloads using Platform-as-a-Service (PaaS) services that can leverage their existing knowledge of Jenkins.
-
-At the end of this workshop, you will be better able to design and deploy  complex OSS workloads into Azure PaaS using Azure App Services as well as deployment and integration of Azure Marketplace products from Partners such as Bitnami for Jenkins, and update Azure App Services using providers such as GitHub.
-
-## Hands-on Lab
-
-In this hands-on lab, you will implement a migration of a popular OS Support Ticket system from virtual machines, to an Azure PaaS solution with Web Apps, Azure Database for MySQL, as well as deploy Jenkins in an Azure virtual machine.
 
 ## Azure services and related products
 - A GitHub Account
