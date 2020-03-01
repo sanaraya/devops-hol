@@ -1,4 +1,4 @@
-# Azure Pipelines #
+# Deploy to Azure Kubernetes Service #
 
 Azure Kubernetes Service manages your hosted Kubernetes environment, making it quicker and easier for you to deploy and manage containerized applications. This service also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
